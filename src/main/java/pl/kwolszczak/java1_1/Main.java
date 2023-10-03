@@ -19,7 +19,7 @@ public class Main {
 
         for (int attempt = 1; attempt <= maxAttempts; attempt++) {
             System.out.println("-".repeat(40));
-            System.out.println("Write your answer and press ENTER");
+            System.out.println("Write your answer and press ENTER.");
 
             yourNumber = scanner.nextInt();
             guessed = checkAnswer(yourNumber, numberToGuess);
