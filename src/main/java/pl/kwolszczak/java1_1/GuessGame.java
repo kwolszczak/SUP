@@ -5,25 +5,22 @@ import java.util.Scanner;
 public class GuessGame {
     public static void playGame(int numberToGuess) {
         Scanner scanner = new Scanner(System.in);
-        boolean guessed = false;
+        boolean isGuessed = false;
         int maxAttempts = 5;
         int yourNumber;
 
         System.out.println("Guess the number from 0 to 99");
-        for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+        for (int leftAttempts = maxAttempts - 1; leftAttempts >= 0; leftAttempts--) {
             System.out.println("-".repeat(40));
             System.out.println("Write your answer and press ENTER");
 
             yourNumber = scanner.nextInt();
-            guessed = checkAnswer(yourNumber, numberToGuess);
-
-            if (guessed) break;
-            else {
-                printAttemptsInfo(attempt, maxAttempts);
-            }
+            isGuessed = checkAnswer(yourNumber, numberToGuess);
+            if (isGuessed) break;
+            printAttemptsInfo(leftAttempts);
         }
 
-        if (!guessed) {
+        if (!isGuessed) {
             System.out.println("Sorry you didn't guess the number, the answer was: " + numberToGuess);
         }
     }
@@ -42,11 +39,10 @@ public class GuessGame {
         return guessed;
     }
 
-    private static void printAttemptsInfo(int attempt, int maxAttempts) {
-        int leftAttempts = maxAttempts - attempt;
-        if (attempt < maxAttempts) {
+    private static void printAttemptsInfo(int leftAttempts) {
+        if (leftAttempts > 0) {
             System.out.println("\tPlease try again");
-            System.out.println("\tYou have " + leftAttempts + " attempts left");
+            System.out.printf("\tYou have %d attempts left%n", leftAttempts);
         }
     }
 }
