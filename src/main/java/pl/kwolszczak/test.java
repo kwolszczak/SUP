@@ -9,6 +9,7 @@ public class test {
 
         String myString = """
                 dsfsd kk k """;
+        String myss="dsdf";
 
     }
 }
