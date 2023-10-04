@@ -9,10 +9,9 @@ public class test {
 
         String myString = """
                 dsfsd kk k """;
-<<<<<<< HEAD
+
         String myss="dsdf";
-=======
->>>>>>> origin/feature
+
 
     }
 }
