@@ -5,20 +5,22 @@ import java.util.Scanner;
 public class GuessGame {
     public static void playGame(int numberToGuess) {
         Scanner scanner = new Scanner(System.in);
-        boolean isGuessed = false;
-        int maxAttempts = 5;
+        int leftAttempts = 5;
+        boolean isGuessed;
         int yourNumber;
 
         System.out.println("Guess the number from 0 to 99");
-        for (int leftAttempts = maxAttempts - 1; leftAttempts >= 0; leftAttempts--) {
+        do {
             System.out.println("-".repeat(40));
             System.out.println("Write your answer and press ENTER");
 
             yourNumber = scanner.nextInt();
             isGuessed = checkAnswer(yourNumber, numberToGuess);
-            if (isGuessed) break;
-            printAttemptsInfo(leftAttempts);
-        }
+            leftAttempts--;
+
+            if (!isGuessed) printAttemptsInfo(leftAttempts);
+            else break;
+        } while (leftAttempts > 0);
 
         if (!isGuessed) {
             System.out.println("Sorry you didn't guess the number, the answer was: " + numberToGuess);
