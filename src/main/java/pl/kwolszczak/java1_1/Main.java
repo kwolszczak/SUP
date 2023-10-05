@@ -7,9 +7,6 @@ public class Main {
     public static void main(String[] args) {
         int numberToGuess = new Random().nextInt(100);
         playGame(numberToGuess);
-        //main class
     }
-
-
 }
 

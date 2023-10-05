@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Token {
     private static final Random random = new Random();
+
     public static String tokenGenerator(int tokenSize) {
         StringBuilder token = new StringBuilder(15);
         int asciiPosition;
