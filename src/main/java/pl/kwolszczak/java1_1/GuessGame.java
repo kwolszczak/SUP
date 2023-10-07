@@ -18,8 +18,10 @@ public class GuessGame {
             isGuessed = checkAnswer(yourNumber, numberToGuess);
             leftAttempts--;
 
-            if (!isGuessed) printAttemptsInfo(leftAttempts);
-            else break;
+            if (isGuessed){
+                break;
+            }
+            printAttemptsInfo(leftAttempts);
         } while (leftAttempts > 0);
 
         if (!isGuessed) {
@@ -28,7 +30,6 @@ public class GuessGame {
     }
 
     private static boolean checkAnswer(int yourNumber, int numberToGuess) {
-        boolean guessed = false;
 
         if (yourNumber > numberToGuess) {
             System.out.println("Your number is GREATER than the one you are trying to guess");
@@ -36,9 +37,9 @@ public class GuessGame {
             System.out.println("Your number is LOWER than the one you are trying to guess");
         } else {
             System.out.println("You guessed it!");
-            guessed = true;
+            return true;
         }
-        return guessed;
+        return false;
     }
 
     private static void printAttemptsInfo(int leftAttempts) {
