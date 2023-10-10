@@ -8,20 +8,21 @@ public class Main {
     private static Company company = new Company();
 
     public static void main(String[] args) {
-        boolean flag = true;
+        boolean quit = false;
         int option;
         do {
-
             displayMenu();
             option = Integer.parseInt(scanner.nextLine());
             switch (option) {
                 case 1 -> company.printAllEmployeesSalary();
                 case 2 -> company.getAllData();
-                case 3 -> company.addEmployee(getEmployeeFromConsole());
-                case 4 -> flag = false;
+                case 3 -> {company.addEmployee(getEmployeeFromConsole());
+                    System.out.println("ddd");
+                }
+                case 4 -> quit = true;
                 default -> System.out.println("Wrong option");
             }
-        } while (flag);
+        } while (!quit);
     }
 
     private static EmployeeR getEmployeeFromConsole() {
