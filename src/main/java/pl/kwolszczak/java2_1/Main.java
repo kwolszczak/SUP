@@ -16,9 +16,7 @@ public class Main {
             switch (option) {
                 case 1 -> company.printAllEmployeesSalary();
                 case 2 -> company.getAllData();
-                case 3 -> {company.addEmployee(getEmployeeFromConsole());
-                    System.out.println("ddd");
-                }
+                case 3 -> company.addEmployee(getEmployeeFromConsole());
                 case 4 -> quit = true;
                 default -> System.out.println("Wrong option");
             }

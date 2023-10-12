@@ -1,13 +1,11 @@
 package pl.kwolszczak.java1_2;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Token {
     private static final Random random = new Random();
     private static final String msg = "Incorrect token Size parameter!";
-    private static int[] validTokenSize = {5,10,15};
-
+    private static int[] validTokenSize = {5, 10, 15};
 
     public static String tokenGenerator(int tokenSize) {
         String result;
@@ -22,7 +20,7 @@ public class Token {
         }*/
 
         result = switch (tokenSize) {
-            case 5,10,15->  getString(tokenSize);
+            case 5, 10, 15 -> getString(tokenSize);
             default -> msg;
         };
         return result;
