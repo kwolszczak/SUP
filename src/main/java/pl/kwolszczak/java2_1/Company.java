@@ -3,19 +3,19 @@ package pl.kwolszczak.java2_1;
 import java.util.ArrayList;
 
 public class Company {
-    private ArrayList<EmployeeR> employees;
+    private ArrayList<Employee> employees;
 
     public Company() {
         this.employees = new ArrayList<>();
     }
 
-    public void addEmployee(EmployeeR employee) {
+    public void addEmployee(Employee employee) {
         this.employees.add(employee);
     }
 
     public void printAllEmployeesSalary() {
         long sumSalary = 0;
-        for (EmployeeR employee : employees) {
+        for (Employee employee : employees) {
             sumSalary += employee.salary();
         }
         System.out.println("Sum of salary = "+ sumSalary);

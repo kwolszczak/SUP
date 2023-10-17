@@ -23,20 +23,33 @@ public class Main {
         } while (!quit);
     }
 
-    private static EmployeeR getEmployeeFromConsole() {
+    private static Employee getEmployeeFromConsole() {
         String name;
         String surname;
         long salary;
+        boolean validData;
 
         System.out.println("---Add new employee-----");
-        System.out.print("Write name: ");
-        name = scanner.nextLine();
-        System.out.print("Write surname: ");
-        surname = scanner.nextLine();
-        System.out.print("Write salary: ");
-        salary = Long.parseLong(scanner.nextLine());
+        do {
+            System.out.print("Write name: ");
+            name = scanner.nextLine();
+            validData = validateData(name);
+        } while (!validData);
 
-        return new EmployeeR(name, surname, salary);
+        do {
+            System.out.print("Write surname: ");
+            surname = scanner.nextLine();
+            validData = validateData(surname);
+        } while (!validData);
+
+        do {
+            System.out.print("Write salary: ");
+            String salaryStr = scanner.nextLine();
+            validData = validateSalary(salaryStr);
+            salary = !validData ? -1 : Long.parseLong(salaryStr);
+        } while (!validData);
+
+        return new Employee(name, surname, salary);
     }
 
     private static void displayMenu() {
@@ -48,5 +61,27 @@ public class Main {
                 4 – End program
                 """;
         System.out.println(menu);
+    }
+
+    private static boolean validateData(String data) {
+        if (data.trim().isEmpty()) {
+            System.out.printf("Validation failed. Name, surname should not be empty%n");
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean validateSalary(String data) {
+        try {
+            long salary = Long.parseLong(data);
+            if (salary <= 0) {
+                System.out.printf("Validation failed. The salary should be greater than 0%n");
+            } else {
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            System.out.printf("Can't parse data. Try to write a number%n");
+        }
+        return false;
     }
 }

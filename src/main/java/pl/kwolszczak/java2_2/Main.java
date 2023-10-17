@@ -23,24 +23,24 @@ public class Main {
         Market business = new Market("Business", businessCountries);
 
         Market cargo = new Market("Cargo");
-        cargo.addCountry(china);
-        cargo.addCountry(korea);
-        cargo.addCountry(poland);
+        cargo.addCountry(china)
+                .addCountry(korea)
+                .addCountry(poland);
 
         Market transport = new Market("Transport");
-        transport.addCountry(poland);
-        transport.addCountry(germany);
-        transport.addCountry(china);
+        transport.addCountry(poland)
+                .addCountry(germany)
+                .addCountry(china);
 
         Market taxi = new Market("Taxi");
-        taxi.addCountry(germany);
-        taxi.addCountry(holland);
-        taxi.addCountry(poland);
+        taxi.addCountry(germany)
+                .addCountry(holland)
+                .addCountry(poland);
 
         Market bus = new Market("Bus");
-        bus.addCountry(china);
-        bus.addCountry(holland);
-        bus.addCountry(korea);
+        bus.addCountry(china)
+                .addCountry(holland)
+                .addCountry(korea);
 
         // -----------------CARS ---------------------
         Producent audiA5 = new Producent("AUDI", "A5");
@@ -88,9 +88,8 @@ public class Main {
         Dimension dimensionCorrado = new Dimension(136, 398, 72);
         Car corrado = new Car(vwCorrado, false, bus, Segment.MEDIUM, dimensionCorrado);
 
-
         //-----------------all cars list
-        ArrayList<Car> cars = new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
         cars.add(a5);
         cars.add(a5Taxi);
         cars.add(s7);
