@@ -106,6 +106,6 @@ public class Main {
         cars.add(insignia);
         cars.add(corrado);
 
-        Car.searchCountry(cars, "aUDi", true, 50);
+        Car.searchCountry(cars, "aUDitt", true, 50);
     }
 }
