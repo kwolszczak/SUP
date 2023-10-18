@@ -7,39 +7,31 @@ public class Main {
         var calc = new Calculator<Integer>();
 
         // add
-        calc.performOperation(2, 3, new Executable<Integer>() {
+        Integer  one = calc.performOperation(2, 3, new Executable<Integer>() {
             @Override
             public Integer execute(Integer a, Integer b) {
-                int result = a+b ;
-                System.out.printf("a+b = %9d%n",result);
-                return result;
+                return a+b ;
             }
         });
+        System.out.printf("a+b = %9d%n",one);
 
         // subtract
-        calc.performOperation(2, 3, new Executable<Integer>() {
+       int two = calc.performOperation(2, 3, new Executable<Integer>() {
             @Override
             public Integer execute(Integer a, Integer b) {
-                int result = a-b ;
-                System.out.printf("a-b = %9d%n",result);
-                return result;
+                return a-b ;
             }
         });
+        System.out.printf("a-b = %9d%n",two);
 
        var calcDouble = new Calculator<Double>();
 
         // multiply , divide
-        calcDouble.performOperation(2.0,3.0 , (m,n)->{
-            double result = m * n ;
-            System.out.printf("a*b = %9.1f%n",result);
-            return result;
-        });
+        double three = calcDouble.performOperation(2.0,3.0 , (m,n)-> m * n);
+        System.out.printf("a*b = %9.1f%n",three);
 
         // divide
-        calcDouble.performOperation(2.0,3.0 , (m,n)->{
-            double result = m / n ;
-            System.out.printf("a/b = %9.3f%n",result);
-            return result;
-        });
+        Double four = calcDouble.performOperation(2.0,3.0 , (m,n)-> m/n );
+        System.out.printf("a/b = %9.3f%n",four);
     }
 }
