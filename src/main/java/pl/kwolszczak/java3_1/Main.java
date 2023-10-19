@@ -23,10 +23,8 @@ public class Main {
         });
         System.out.printf("a-b = %9d%n", two);
 
-
         double three = calcDouble.performOperation(2.0, 3.0, (m, n) -> m * n);
         System.out.printf("a*b = %9.1f%n", three);
-
 
         Double four = calcDouble.performOperation(2.0, 3.0, (m, n) -> m / n);
         System.out.printf("a/b = %9.3f%n", four);
