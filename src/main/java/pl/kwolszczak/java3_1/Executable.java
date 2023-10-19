@@ -1,7 +1,7 @@
 package pl.kwolszczak.java3_1;
 
 @FunctionalInterface
-public interface Executable<T> {
+public interface Executable<T extends Number> {
 
     T execute(T a, T b);
 }

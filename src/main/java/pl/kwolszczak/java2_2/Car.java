@@ -31,6 +31,7 @@ public class Car {
             currentCarTrankCapacity = car.dimension.getTrunkCapacityInLiters();
             currentCarModel = car.producent.model();
             if (currentCarAutomationGear == hasAutomaticGear && currentCarTrankCapacity > trankCapacity && currentCarModel.equalsIgnoreCase(model)) {
+
                 isObjectFounded = true;
                 System.out.println(car.producent.model() + " " + car.producent.type());
                 for (var country : car.market.getCountries()) {
