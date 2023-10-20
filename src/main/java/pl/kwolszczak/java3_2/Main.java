@@ -13,10 +13,15 @@ public class Main {
         properties.put("url", "www.angelina.hollywood");
         properties.put("errorMessage", "file has not been founded");
 
-        //anonymizedMap
-        Map<String, String> anonymizedMap = Anonymization.anonymization(properties);
+        String[] sensitiveData = {"title", "errorMessage", "url"};
 
-        //original map
+        Map<String, String> anonymizedMap = Anonymization.anonymization(properties,sensitiveData);
+        Anonymization.anonymization(properties);
+        Anonymization.anonymization(properties, new String[]{"baba"});
+
+        System.out.println("\n\noriginal map");
         Anonymization.printMap(properties);
+        System.out.println("\n\nanonymized map");
+        Anonymization.printMap(anonymizedMap);
     }
 }
