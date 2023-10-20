@@ -1,11 +1,7 @@
 package pl.kwolszczak.java3_2;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
-import java.util.function.Consumer;
-import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,20 +13,10 @@ public class Main {
         properties.put("url", "www.angelina.hollywood");
         properties.put("errorMessage", "file has not been founded");
 
-        String[] sensualKeys = {"login", "password", "url"};
+        //anonymizedMap
+        Map<String, String> anonymizedMap = Anonymization.anonymization(properties);
 
-        UnaryOperator<Map.Entry<String, String>> sensitiveMapper = entry -> {
-            Arrays.stream(sensualKeys).forEach(sensitiveValue -> {
-                if (entry.getKey().equals(sensitiveValue)) {
-                    entry.setValue("******");
-                }
-            });
-            return entry;
-        };
-
-
-        properties.entrySet().stream()
-                .map(sensitiveMapper)
-                .forEach(System.out::println);
+        //original map
+        Anonymization.printMap(properties);
     }
 }
