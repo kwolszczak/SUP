@@ -1,0 +1,237 @@
+{
+  "movies": [
+    {
+      "title": "The Shawshank Redemption",
+      "director": {
+        "firstName": "Frank",
+        "lastName": "Darabont"
+      },
+      "genre": "DRAMA",
+      "date": "1994",
+      "actors": [
+        {
+          "firstName": "Tim",
+          "lastName": "Robbins"
+        },
+        {
+          "firstName": "Morgan",
+          "lastName": "Freeman"
+        },
+        {
+          "firstName": "Bob",
+          "lastName": "Gunton"
+        }
+      ]
+    },
+    {
+      "title": "Seven",
+      "director": {
+        "firstName": "David",
+        "lastName": "Fincher"
+      },
+      "genre": "THRILLER",
+      "date": "1995",
+      "actors": [
+        {
+          "firstName": "Morgan",
+          "lastName": "Freeman"
+        },
+        {
+          "firstName": "Brad",
+          "lastName": "Pitt"
+        },
+        {
+          "firstName": "Gwyneth",
+          "lastName": "Paltrow"
+        }]
+        },
+        {
+          "title": "Inception",
+          "director": {
+            "firstName": "Christopher",
+            "lastName": "Nolan"
+          },
+          "genre": "SCI-FI",
+          "date": "2010",
+          "actors": [
+            {
+              "firstName": "Leonardo",
+              "lastName": "DiCaprio"
+            },
+            {
+              "firstName": "Brad",
+              "lastName": "Pitt"
+            },
+            {
+              "firstName": "Joseph",
+              "lastName": "Gordon-Levitt"
+            },
+            {
+              "firstName": "Ellen",
+              "lastName": "Page"
+            }
+          ]
+        },
+        {
+          "title": "Pulp Fiction",
+          "director": {
+            "firstName": "Quentin",
+            "lastName": "Tarantino"
+          },
+          "genre": "CRIME",
+          "date": "1994",
+          "actors": [
+            {
+              "firstName": "John",
+              "lastName": "Travolta"
+            },
+            {
+              "firstName": "Samuel L.",
+              "lastName": "Jackson"
+            },
+            {
+              "firstName": "Uma",
+              "lastName": "Thurman"
+            }
+          ]
+        },
+        {
+          "title": "The Godfather",
+          "director": {
+            "firstName": "Francis Ford",
+            "lastName": "Coppola"
+          },
+          "genre": "CRIME",
+          "date": "1972",
+          "actors": [
+            {
+              "firstName": "Marlon",
+              "lastName": "Brando"
+            },
+            {
+              "firstName": "Al",
+              "lastName": "Pacino"
+            },
+            {
+              "firstName": "James",
+              "lastName": "Caan"
+            }
+          ]
+        },
+        {
+          "title": "The Dark Knight",
+          "director": {
+            "firstName": "Christopher",
+            "lastName": "Nolan"
+          },
+          "genre": "ACTION",
+          "date": "2008",
+          "actors": [
+            {
+              "firstName": "Christian",
+              "lastName": "Bale"
+            },
+            {
+              "firstName": "Heath",
+              "lastName": "Ledger"
+            },
+            {
+              "firstName": "Aaron",
+              "lastName": "Eckhart"
+            }
+          ]
+        },
+        {
+          "title": "Forrest Gump",
+          "director": {
+            "firstName": "Robert",
+            "lastName": "Zemeckis"
+          },
+          "genre": "DRAMA",
+          "date": "1994",
+          "actors": [
+            {
+              "firstName": "Tom",
+              "lastName": "Hanks"
+            },
+            {
+              "firstName": "Robin",
+              "lastName": "Wright"
+            },
+            {
+              "firstName": "Gary",
+              "lastName": "Sinise"
+            }
+          ]
+        },
+        {
+          "title": "Schindler's List",
+          "director": {
+            "firstName": "Steven",
+            "lastName": "Spielberg"
+          },
+          "genre": "DRAMA",
+          "date": "1993",
+          "actors": [
+            {
+              "firstName": "Liam",
+              "lastName": "Neeson"
+            },
+            {
+              "firstName": "Ralph",
+              "lastName": "Fiennes"
+            },
+            {
+              "firstName": "Ben",
+              "lastName": "Kingsley"
+            }
+          ]
+        },
+        {
+          "title": "The Matrix",
+          "director": {
+            "firstName": "Lana",
+            "lastName": "Wachowski"
+          },
+          "genre": "SCI-FI",
+          "date": "1999",
+          "actors": [
+            {
+              "firstName": "Keanu",
+              "lastName": "Reeves"
+            },
+            {
+              "firstName": "Laurence",
+              "lastName": "Fishburne"
+            },
+            {
+              "firstName": "Carrie-Anne",
+              "lastName": "Moss"
+            }
+          ]
+        },
+        {
+          "title": "Avatar",
+          "director": {
+            "firstName": "James",
+            "lastName": "Cameron"
+          },
+          "genre": "SCI-FI",
+          "date": "2009",
+          "actors": [
+            {
+              "firstName": "Sam",
+              "lastName": "Worthington"
+            },
+            {
+              "firstName": "Zoe",
+              "lastName": "Saldana"
+            },
+            {
+              "firstName": "Sigourney",
+              "lastName": "Weaver"
+            }
+          ]
+        }
+      ]
+    }
