@@ -15,7 +15,7 @@ public class Main {
 
         String[] sensitiveData = {"title", "errorMessage", "url"};
 
-        Map<String, String> anonymizedMap = Anonymization.anonymization(properties,sensitiveData);
+        Map<String, String> anonymizedMap = Anonymization.anonymization(properties, sensitiveData);
         Anonymization.anonymization(properties);
         Anonymization.anonymization(properties, new String[]{"baba"});
 

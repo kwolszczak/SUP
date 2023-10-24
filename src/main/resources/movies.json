@@ -1,0 +1,53 @@
+{
+  "movies": [
+    {
+      "title": "Movie 1",
+      "director": {
+        "name": "Director 1",
+        "last name": "Director 1",
+        "birthdate": "January 1, 1970",
+        "nationality": "Country 1"
+      },
+      "actors": [
+        {
+          "name": "Actor 1",
+          "last name": "Director 1",
+          "birthdate": "February 15, 1985",
+          "nationality": "Country 2"
+        },
+        {
+          "name": "Actor 2",
+          "last name": "Director 1",
+          "birthdate": "March 20, 1990",
+          "nationality": "Country 3"
+        }
+      ],
+      "release_year": 2020,
+      "genre": "Action",
+      "rating": 7.5
+    },
+    {
+      "title": "Movie 2",
+      "director": {
+        "name": "Director 2",
+        "birthdate": "April 5, 1980",
+        "nationality": "Country 4"
+      },
+      "actors": [
+        {
+          "name": "Actor 3",
+          "birthdate": "May 10, 1995",
+          "nationality": "Country 5"
+        },
+        {
+          "name": "Actor 4",
+          "birthdate": "June 25, 1988",
+          "nationality": "Country 6"
+        }
+      ],
+      "release_year": 2018,
+      "genre": "Drama",
+      "rating": 8.2
+    }
+  ]
+}
