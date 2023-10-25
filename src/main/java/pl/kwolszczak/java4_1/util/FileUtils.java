@@ -17,9 +17,11 @@ public class FileUtils {
         Path workingDir = Paths.get("").toAbsolutePath();
         System.out.println("Working dir: " + workingDir);
 
-        File jsonFile = new File(workingDir + "\\src\\main\\resources\\" + fileName + ".json");
+        //File jsonFile = new File(workingDir + "\\src\\main\\resources\\" + fileName + ".json");
+        File jsonFileMac = new File(workingDir + "//src//main/resources//" + fileName + ".json");
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(jsonFile, MovieLibrary.class);
+        //return mapper.readValue(jsonFile, MovieLibrary.class);
+        return mapper.readValue(jsonFileMac, MovieLibrary.class);
     }
 }

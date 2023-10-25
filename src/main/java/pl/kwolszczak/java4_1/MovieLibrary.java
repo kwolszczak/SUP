@@ -25,7 +25,7 @@ public record MovieLibrary(List<Movie> movies) {
 
     public void findMovieByActor(String firstName, String lastName) {
 
-        System.out.printf("%n%n%n\t\tMovies with actor: %s %s", firstName, lastName);
+        System.out.printf("%n\t\tMovies with actor: %s %s", firstName, lastName);
         movies.stream().filter(movie -> movie.actors()
                         .stream()
                         .anyMatch(actor -> actor.firstName().equals(firstName) && actor.lastName().equals(lastName)))
@@ -34,7 +34,7 @@ public record MovieLibrary(List<Movie> movies) {
 
     public void findMoviesByDates(int dateFrom, int dateTo) {
 
-        System.out.printf("%n%n%n\t\tMovies between dates: %s - %s", dateFrom, dateTo);
+        System.out.printf("%n\t\tMovies between dates: %s - %s", dateFrom, dateTo);
         movies.stream().filter(movie -> {
                     int movieDate = Integer.parseInt(movie.date());
                     return movieDate >= dateFrom && movieDate <= dateTo;

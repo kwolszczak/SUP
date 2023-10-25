@@ -10,9 +10,9 @@ public class Anonymization {
     public static void addSensitiveData(String sensitive) {
         if (!sensitiveData.contains(sensitive)) {
             sensitiveData.add(sensitive);
-            System.out.println("log: " + sensitive + " added sensitve Data list");
+            System.out.println("log: '" + sensitive + "' added to sensitive Data list");
         }else{
-            System.out.println("log: " + sensitive + " is already on the sensitve Data list");
+            System.out.println("log: '" + sensitive + "' is already on the sensitive Data list");
         }
     }
 
