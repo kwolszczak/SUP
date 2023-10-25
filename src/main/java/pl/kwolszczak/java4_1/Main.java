@@ -8,13 +8,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-      /*  //var library = FileUtils.getJsonData("myMovies");
-        System.out.println(library);
-
-        library.findRandomMovie();
-        library.findMovieByActor("Brad", "Pitt");
-        library.findMoviesByDates(2008, 2009);*/
-
         Controller.run();
     }
 }
