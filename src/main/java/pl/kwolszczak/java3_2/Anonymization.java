@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 
 public class Anonymization {
     private static List<String> sensitiveData = new ArrayList<>(Arrays.asList("login", "password"));
+    private static String mask = "******";
 
     public static void addSensitiveData(String sensitive) {
         if (!sensitiveData.contains(sensitive)) {
@@ -21,14 +22,14 @@ public class Anonymization {
         Consumer<Map.Entry<String, String>> sensitiveSetter = entry -> {
             for (var sensitiveValue : sensitiveData) {
                 if (sensitiveValue.equals(entry.getKey())) {
-                    entry.setValue("******");
+                    entry.setValue(mask);
                 }
             }
         };
 
         var count = anonymizadedMap.entrySet().stream()
                 .peek(sensitiveSetter)
-                .filter(e -> e.getValue().equals("******"))
+                .filter(e -> e.getValue().equals(mask))
                 .count();
         System.out.printf("log: %s fields has been anonymized %n", count);
 
