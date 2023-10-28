@@ -11,16 +11,19 @@ import pl.kwolszczak.java4_2.util.DataUtil;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Map;
 import java.util.Properties;
 
 public class BaseTest {
 
     protected static WebDriver driver;
     private static Properties properties;
+    protected Map<String,String> linksData;
 
     @BeforeEach
     void setUp() throws IOException {
         properties = DataUtil.getProperties("env.properties");
+        linksData = DataUtil.readCSVToMap("links.csv");
         setBrowser();
     }
 

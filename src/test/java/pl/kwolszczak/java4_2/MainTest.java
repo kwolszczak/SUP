@@ -12,7 +12,6 @@ class MainTest extends BaseTest {
 
     private String title;
 
-
     @DisplayName("All Regression")
     @RegressionTest
     @CsvFileSource(resources = "/testData.csv", numLinesToSkip = 1)
@@ -30,7 +29,7 @@ class MainTest extends BaseTest {
     @MethodSource({"pl.kwolszczak.java4_2.data.TestData#dataProvider"})
     void verify_webOnet_hasTitle(String expectedResult) {
 
-        driver.get("https://onet.pl");
+        driver.get(linksData.get("onet"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
@@ -42,7 +41,7 @@ class MainTest extends BaseTest {
     @ValueSource(strings = {"Rozwiązania i usługi IT, inżynierii i BPO - Sii Polska"})
     void verify_webSII_hasTitle(String expectedResult) {
 
-        driver.get("https://www.sii.pl");
+        driver.get(linksData.get("sii"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
@@ -54,7 +53,7 @@ class MainTest extends BaseTest {
     @ValueSource(strings = {"Filmweb - filmy takie jak Ty!"})
     void verify_webFilmweb_hasTitle(String expectedResult) {
 
-        driver.get("https://www.filmweb.pl/");
+        driver.get(linksData.get("filmweb"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
@@ -66,7 +65,7 @@ class MainTest extends BaseTest {
     @ValueSource(strings = {"Kotuszkowo- blog o kotach"})
     void verify_webKotuszkowo_hasTitle(String expectedResult) {
 
-        driver.get("http://kotuszkowo.pl/");
+        driver.get(linksData.get("kotuszkowo"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
@@ -78,7 +77,7 @@ class MainTest extends BaseTest {
     @ValueSource(strings = {"WebDriver | Selenium"})
     void verify_webSelenium_hasTitle(String expectedResult) {
 
-        driver.get("https://www.selenium.dev/documentation/en/webdriver/");
+        driver.get(linksData.get("selenium"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
