@@ -3,18 +3,18 @@ package pl.kwolszczak.java4_2;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import pl.kwolszczak.java4_2.util.RegressionTest;
 
 class MainTest extends BaseTest {
 
     private String title;
 
-    @Tag("Regression")
+
     @DisplayName("All Regression")
-    @ParameterizedTest
+    @RegressionTest
     @CsvFileSource(resources = "/testData.csv", numLinesToSkip = 1)
     void verify_allWebSites_haveTitle(String url, String expectedResult) {
 
@@ -25,9 +25,8 @@ class MainTest extends BaseTest {
     }
 
     @Tag("Onet")
-    @Tag("Regression")
     @DisplayName("Onet - smoke test")
-    @ParameterizedTest
+    @RegressionTest
     @MethodSource({"pl.kwolszczak.java4_2.data.TestData#dataProvider"})
     void verify_webOnet_hasTitle(String expectedResult) {
 
@@ -38,9 +37,8 @@ class MainTest extends BaseTest {
     }
 
     @Tag("Sii")
-    @Tag("Regression")
     @DisplayName("Sii - smoke test")
-    @ParameterizedTest
+    @RegressionTest
     @ValueSource(strings = {"Rozwiązania i usługi IT, inżynierii i BPO - Sii Polska"})
     void verify_webSII_hasTitle(String expectedResult) {
 
@@ -51,9 +49,8 @@ class MainTest extends BaseTest {
     }
 
     @Tag("Filmweb")
-    @Tag("Regression")
     @DisplayName("Filmweb - smoke test")
-    @ParameterizedTest
+    @RegressionTest
     @ValueSource(strings = {"Filmweb - filmy takie jak Ty!"})
     void verify_webFilmweb_hasTitle(String expectedResult) {
 
@@ -64,9 +61,8 @@ class MainTest extends BaseTest {
     }
 
     @Tag("Kotuszkowo")
-    @Tag("Regression")
     @DisplayName("Kotuszkowo - smoke test")
-    @ParameterizedTest
+    @RegressionTest
     @ValueSource(strings = {"Kotuszkowo- blog o kotach"})
     void verify_webKotuszkowo_hasTitle(String expectedResult) {
 
@@ -77,9 +73,8 @@ class MainTest extends BaseTest {
     }
 
     @Tag("Selenium")
-    @Tag("Regression")
     @DisplayName("Selenium - smoke test")
-    @ParameterizedTest
+    @RegressionTest
     @ValueSource(strings = {"WebDriver | Selenium"})
     void verify_webSelenium_hasTitle(String expectedResult) {
 
@@ -88,6 +83,4 @@ class MainTest extends BaseTest {
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
     }
-
-
 }
