@@ -10,6 +10,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class MainTest extends BaseTest {
 
+    private String title;
+
     @Tag("Regression")
     @DisplayName("All Regression")
     @ParameterizedTest
@@ -17,7 +19,7 @@ class MainTest extends BaseTest {
     void verify_allWebSites_haveTitle(String url, String expectedResult) {
 
         driver.get(url);
-        String title = driver.getTitle();
+        title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
     }
@@ -30,7 +32,7 @@ class MainTest extends BaseTest {
     void verify_webOnet_hasTitle(String expectedResult) {
 
         driver.get("https://onet.pl");
-        String title = driver.getTitle();
+        title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
     }
@@ -43,7 +45,7 @@ class MainTest extends BaseTest {
     void verify_webSII_hasTitle(String expectedResult) {
 
         driver.get("https://www.sii.pl");
-        String title = driver.getTitle();
+        title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
     }
@@ -56,7 +58,7 @@ class MainTest extends BaseTest {
     void verify_webFilmweb_hasTitle(String expectedResult) {
 
         driver.get("https://www.filmweb.pl/");
-        String title = driver.getTitle();
+        title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
     }
@@ -69,7 +71,7 @@ class MainTest extends BaseTest {
     void verify_webKotuszkowo_hasTitle(String expectedResult) {
 
         driver.get("http://kotuszkowo.pl/");
-        String title = driver.getTitle();
+        title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
     }
@@ -82,7 +84,7 @@ class MainTest extends BaseTest {
     void verify_webSelenium_hasTitle(String expectedResult) {
 
         driver.get("https://www.selenium.dev/documentation/en/webdriver/");
-        String title = driver.getTitle();
+        title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
     }

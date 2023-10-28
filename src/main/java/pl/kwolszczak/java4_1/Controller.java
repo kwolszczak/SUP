@@ -26,7 +26,7 @@ public class Controller {
         System.out.println(menu);
     }
 
-    private static void searchByDates(MovieLibrary library) throws IOException {
+    private static void searchByDates(MovieLibrary library) {
 
         System.out.print("Write date from, example: 1997: ");
         int dateFrom = Integer.parseInt(scanner.nextLine());
@@ -37,7 +37,7 @@ public class Controller {
         library.findMoviesByDates(dateFrom, dateTo);
     }
 
-    private static void searchByActor(MovieLibrary library) throws IOException {
+    private static void searchByActor(MovieLibrary library) {
 
         System.out.print("Write first Name, example: Tom: ");
          String firstName = scanner.nextLine();
@@ -48,7 +48,7 @@ public class Controller {
         library.findMovieByActor(firstName, lastName);
     }
 
-    private static void findRandomMovie(MovieLibrary library) throws IOException {
+    private static void findRandomMovie(MovieLibrary library) {
         library.findRandomMovie();
     }
 
