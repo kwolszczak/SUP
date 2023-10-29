@@ -3,9 +3,11 @@ package pl.kwolszczak.java4_2;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import pl.kwolszczak.java4_2.data.DataArgumentProvider;
 import pl.kwolszczak.java4_2.util.RegressionTest;
 
 class MainTest extends BaseTest {
@@ -38,7 +40,7 @@ class MainTest extends BaseTest {
     @Tag("Sii")
     @DisplayName("Sii - smoke test")
     @RegressionTest
-    @ValueSource(strings = {"Rozwiązania i usługi IT, inżynierii i BPO - Sii Polska"})
+    @ArgumentsSource(DataArgumentProvider.class)
     void verify_webSII_hasTitle(String expectedResult) {
 
         driver.get(linksData.get("sii"));
