@@ -5,14 +5,13 @@ import pl.kwolszczak.java4_1.util.FileUtils;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Controller {
+import static pl.kwolszczak.java4_1.util.FileUtils.getJsonData;
+
+public class MovieDisplay {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static MovieLibrary library ;
+    private static MovieLibrary library  ;
 
-    public Controller()  {
-    }
-//
 
     private static void displayMenu() {
         String menu = """
@@ -26,7 +25,7 @@ public class Controller {
         System.out.println(menu);
     }
 
-    private static void searchByDates(MovieLibrary library) {
+    private static void searchByDates() {
 
         System.out.print("Write date from, example: 1997: ");
         int dateFrom = Integer.parseInt(scanner.nextLine());
@@ -37,7 +36,7 @@ public class Controller {
         library.findMoviesByDates(dateFrom, dateTo);
     }
 
-    private static void searchByActor(MovieLibrary library) {
+    private static void searchByActor() {
 
         System.out.print("Write first Name, example: Tom: ");
          String firstName = scanner.nextLine();
@@ -48,23 +47,25 @@ public class Controller {
         library.findMovieByActor(firstName, lastName);
     }
 
-    private static void findRandomMovie(MovieLibrary library) {
+    private static void findRandomMovie() {
         library.findRandomMovie();
     }
+
+
 
     public static void run() throws IOException {
 
         boolean quit = false;
         int option;
-        library = FileUtils.getJsonData("myMovies");
+        library = getJsonData("myMovies");
 
         do {
             displayMenu();
             option = Integer.parseInt(scanner.nextLine());
             switch (option) {
-                case 1 -> searchByDates(library);
-                case 2 -> findRandomMovie(library);
-                case 3 -> searchByActor(library);
+                case 1 -> searchByDates();
+                case 2 -> findRandomMovie();
+                case 3 -> searchByActor();
                 case 4 -> quit = true;
                 default -> System.out.println("Wrong option");
             }

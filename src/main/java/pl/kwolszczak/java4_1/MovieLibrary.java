@@ -1,9 +1,16 @@
 package pl.kwolszczak.java4_1;
 
+import pl.kwolszczak.java4_1.model.Movie;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public record MovieLibrary(List<Movie> movies) {
+
+    public MovieLibrary(){
+       this(new ArrayList<>());
+    }
 
     @Override
     public String toString() {

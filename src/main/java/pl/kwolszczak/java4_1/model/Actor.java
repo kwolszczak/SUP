@@ -1,4 +1,4 @@
-package pl.kwolszczak.java4_1;
+package pl.kwolszczak.java4_1.model;
 
 public record Actor(String firstName, String lastName) {
     @Override
