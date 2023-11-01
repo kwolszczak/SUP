@@ -23,7 +23,7 @@ public class BaseTest {
     void setUp() throws IOException {
         properties = DataUtil.getProperties("env.properties");
         setBrowser();
-        driver.get("https://demoqa.com/automation-practice-form");
+        driver.get(properties.getProperty("url"));
     }
 
     @AfterEach
