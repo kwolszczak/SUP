@@ -1,7 +1,7 @@
 package pl.kwolszczak.java4_1.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.kwolszczak.java4_1.MovieLibrary;
+import pl.kwolszczak.java4_1.MoviesLibrary;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class FileUtils {
     private FileUtils() {
     }
 
-    public static MovieLibrary getJsonData(String fileName) throws IOException {
+    public static MoviesLibrary getJsonData(String fileName) throws IOException {
 
         Path workingDir = Paths.get("").toAbsolutePath();
         System.out.println("Working dir: " + workingDir);
@@ -20,6 +20,6 @@ public class FileUtils {
         ObjectMapper mapper = new ObjectMapper();
 
         File jsonFile = new File(workingDir + "\\src\\main\\resources\\" + fileName + ".json");
-        return mapper.readValue(jsonFile, MovieLibrary.class);
+        return mapper.readValue(jsonFile, MoviesLibrary.class);
     }
 }

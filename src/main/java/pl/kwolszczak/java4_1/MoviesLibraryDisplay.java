@@ -1,17 +1,17 @@
 package pl.kwolszczak.java4_1;
 
-import pl.kwolszczak.java4_1.util.FileUtils;
-
 import java.io.IOException;
 import java.util.Scanner;
 
 import static pl.kwolszczak.java4_1.util.FileUtils.getJsonData;
 
-public class MovieDisplay {
+public class MoviesLibraryDisplay {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static MovieLibrary library  ;
+    private static MoviesLibrary library  ;
 
+    private MoviesLibraryDisplay() {
+    }
 
     private static void displayMenu() {
         String menu = """

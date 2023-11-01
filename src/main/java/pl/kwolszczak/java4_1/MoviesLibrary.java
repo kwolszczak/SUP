@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public record MovieLibrary(List<Movie> movies) {
+public record MoviesLibrary(List<Movie> movies) {
 
-    public MovieLibrary(){
+    public MoviesLibrary(){
        this(new ArrayList<>());
     }
 

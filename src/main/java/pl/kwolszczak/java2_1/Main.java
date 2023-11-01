@@ -1,5 +1,8 @@
 package pl.kwolszczak.java2_1;
 
+import pl.kwolszczak.java2_1.model.Company;
+import pl.kwolszczak.java2_1.model.Employee;
+
 import java.util.Scanner;
 
 public class Main {

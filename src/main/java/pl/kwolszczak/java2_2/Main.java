@@ -1,5 +1,7 @@
 package pl.kwolszczak.java2_2;
 
+import pl.kwolszczak.java2_2.model.*;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package pl.kwolszczak.java2_2;
+package pl.kwolszczak.java2_2.model;
 
 public class Dimension {
     private int highInCM;

@@ -1,4 +1,4 @@
-package pl.kwolszczak.java2_1;
+package pl.kwolszczak.java2_1.model;
 
 import java.util.ArrayList;
 

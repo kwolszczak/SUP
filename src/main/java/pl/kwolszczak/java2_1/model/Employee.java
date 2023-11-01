@@ -1,4 +1,4 @@
-package pl.kwolszczak.java2_1;
+package pl.kwolszczak.java2_1.model;
 
 public record Employee(String name, String surname, long salary ) {
     @Override
