@@ -1,4 +1,4 @@
-package pl.kwolszczak.java4_2.data;
+package pl.kwolszczak.selenium5_2.data;
 
 import java.util.stream.Stream;
 

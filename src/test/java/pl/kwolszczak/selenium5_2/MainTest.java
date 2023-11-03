@@ -1,52 +1,64 @@
-package pl.kwolszczak.java4_2;
+package pl.kwolszczak.selenium5_2;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import pl.kwolszczak.java4_2.data.DataArgumentProvider;
-import pl.kwolszczak.java4_2.util.RegressionTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pl.kwolszczak.selenium5_2.data.DataArgumentProvider;
+import pl.kwolszczak.selenium5_2.util.RegressionTest;
+
+
 
 class MainTest extends BaseTest {
 
     private String title;
+    protected Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 
     @DisplayName("All Regression")
     @RegressionTest
     @CsvFileSource(resources = "/testData.csv", numLinesToSkip = 1)
     void verify_allWebSites_haveTitle(String url, String expectedResult) {
 
+        log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(url);
         title = driver.getTitle();
-
         Assertions.assertThat(title).isEqualTo(expectedResult);
+        log.info("Test {} finished",testInfo.getDisplayName());
     }
 
     @Tag("Onet")
     @DisplayName("Onet - smoke test")
     @RegressionTest
-    @MethodSource({"pl.kwolszczak.java4_2.data.TestData#dataProvider"})
+    @MethodSource({"pl.kwolszczak.selenium5_2.data.TestData#dataProvider"})
     void verify_webOnet_hasTitle(String expectedResult) {
 
+        log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(linksData.get("onet"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
+        log.info("Test {} finished",testInfo.getDisplayName());
     }
 
     @Tag("Sii")
-    @DisplayName("Sii - smoke test")
+    @Tag("Onet")
+    @DisplayName("Sii, ONet")
     @RegressionTest
     @ArgumentsSource(DataArgumentProvider.class)
-    void verify_webSII_hasTitle(String expectedResult) {
+    void verify_webSII_hasTitle(String url,String expectedResult) {
 
-        driver.get(linksData.get("sii"));
+        log.info("Setup test {}",testInfo.getTestMethod().get().getName());
+        driver.get(url);
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
+        log.info("Test {} finished",testInfo.getDisplayName());
     }
 
     @Tag("Filmweb")
@@ -55,10 +67,12 @@ class MainTest extends BaseTest {
     @ValueSource(strings = {"Filmweb - filmy takie jak Ty!"})
     void verify_webFilmweb_hasTitle(String expectedResult) {
 
+        log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(linksData.get("filmweb"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
+        log.info("Test {} finished",testInfo.getDisplayName());
     }
 
     @Tag("Kotuszkowo")
@@ -67,10 +81,12 @@ class MainTest extends BaseTest {
     @ValueSource(strings = {"Kotuszkowo- blog o kotach"})
     void verify_webKotuszkowo_hasTitle(String expectedResult) {
 
+        log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(linksData.get("kotuszkowo"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
+        log.info("Test {} finished",testInfo.getDisplayName());
     }
 
     @Tag("Selenium")
@@ -79,9 +95,11 @@ class MainTest extends BaseTest {
     @ValueSource(strings = {"WebDriver | Selenium"})
     void verify_webSelenium_hasTitle(String expectedResult) {
 
+        log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(linksData.get("selenium"));
         title = driver.getTitle();
 
         Assertions.assertThat(title).isEqualTo(expectedResult);
+        log.info("Test {} finished",testInfo.getDisplayName());
     }
 }

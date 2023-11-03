@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium1_1;
+package pl.kwolszczak.selenium5_1;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
+
 
 class MainTest extends BaseTest {
 

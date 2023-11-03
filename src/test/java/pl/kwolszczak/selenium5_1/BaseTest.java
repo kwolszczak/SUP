@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium1_1;
+package pl.kwolszczak.selenium5_1;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,17 +7,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import pl.kwolszczak.java4_2.util.DataUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pl.kwolszczak.selenium5_2.util.DataUtil;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Map;
 import java.util.Properties;
 
 public class BaseTest {
 
     protected static WebDriver driver;
     private static Properties properties;
+
 
     @BeforeEach
     void setUp() throws IOException {
@@ -34,7 +36,7 @@ public class BaseTest {
     private static void setBrowser() {
 
         switch (properties.getProperty("browser")) {
-            case "chrome"-> {
+            case "chrome" -> {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setBrowserVersion(properties.getProperty("browserVersion"));
                 driver = new ChromeDriver(chromeOptions);

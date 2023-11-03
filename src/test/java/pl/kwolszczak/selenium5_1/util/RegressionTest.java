@@ -1,4 +1,4 @@
-package pl.kwolszczak.java4_2.util;
+package pl.kwolszczak.selenium5_1.util;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;

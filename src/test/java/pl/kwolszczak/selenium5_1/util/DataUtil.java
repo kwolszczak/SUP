@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium1_1.util;
+package pl.kwolszczak.selenium5_1.util;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
