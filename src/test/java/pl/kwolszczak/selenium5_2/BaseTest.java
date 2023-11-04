@@ -23,7 +23,7 @@ public class BaseTest {
     private static Properties properties;
     protected static WebDriver driver;
     protected Map<String,String> linksData;
-    private static Logger log = LoggerFactory.getLogger("BaseTest.class");
+    private static Logger log = LoggerFactory.getLogger(BaseTest.class);
 
     @BeforeEach
     void setUp(TestInfo testInfo) throws IOException {
@@ -36,14 +36,14 @@ public class BaseTest {
         linksData = DataUtil.readCSVToMap("links.csv");
 
         log.info("Setup {} Browser...",properties.getProperty("browser"));
-        log.error("Couln't setUp browser--- test log  test log test log");
+        log.error("Couldn't setUp browser--- test log  test log test log");
         setBrowser();
     }
 
     @AfterEach
     void tearDown() {
         log.info("Quit driver...");
-        log.error("Couln't quit driver--- test log  test log test log");
+        log.error("Couldn't quit driver--- test log  test log test log");
         driver.quit();
     }
 
@@ -79,9 +79,9 @@ public class BaseTest {
             }
         }
 
-        log.debug("Seting up windows maximum size");
+        log.debug("Setting up windows maximum size");
         driver.manage().window().maximize();
-        log.warn("Seting up implicitly wait timeout - 5s");
+        log.warn("Setting up implicitly wait timeout - 5s");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 }

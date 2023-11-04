@@ -18,13 +18,14 @@ import pl.kwolszczak.selenium5_2.util.RegressionTest;
 class MainTest extends BaseTest {
 
     private String title;
-    protected Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
+    protected Logger log = LoggerFactory.getLogger(MainTest.class);
 
     @DisplayName("All Regression")
     @RegressionTest
     @CsvFileSource(resources = "/testData.csv", numLinesToSkip = 1)
     void verify_allWebSites_haveTitle(String url, String expectedResult) {
 
+       // throw new RuntimeException();
         log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(url);
         title = driver.getTitle();

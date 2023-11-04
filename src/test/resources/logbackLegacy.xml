@@ -1,0 +1,36 @@
+<configuration scan="true" debug="false">
+    <property name="DEV_HOME" value="${user.dir}/log"/>
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>false</withJansi>
+        <encoder>
+            <pattern>[%thread] %highlight(%-5level) %cyan(%-15logger) %(%kvp) -%msg %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${DEV_HOME}/BaseLogFile.log</file>
+        <append>true</append>
+        <!--    <file>${DEV_HOME}/timeBasedlogFile_${bySecond}.log</file>  &lt;!&ndash; z timestamp&ndash;&gt;-->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${DEV_HOME}/timeBasedlogFile.%d{yyyy-MM-dd-HH-mm}.zip</fileNamePattern>
+            <maxHistory>3</maxHistory>
+            <totalSizeCap>30KB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="pl.kwolszczak.selenium5_2.BaseTest" level="OFF" addivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
