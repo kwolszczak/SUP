@@ -6,13 +6,20 @@
     <import class="ch.qos.logback.core.ConsoleAppender"/>
     <import class="ch.qos.logback.core.rolling.RollingFileAppender"/>
     <import class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"/>
+    <import class="ch.qos.logback.classic.turbo.MarkerFilter"/>
 
     <property name="DEV_HOME" value="${user.dir}/log"/>
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
 
+    <turboFilter class="MarkerFilter">
+        <Marker>FATAL</Marker>
+        <onMatch>ACCEPT</onMatch>
+<!--        <onMismatch>DENY</onMismatch>-->
+    </turboFilter>
+
     <appender name="STDOUT" class="ConsoleAppender">
         <encoder class="PatternLayoutEncoder">
-            <pattern>[%thread] %highlight(%-5level) %cyan(%-15logger) %(%kvp) -%msg %n %ex %n</pattern>
+            <pattern>[%thread] %highlight(%-5level) %cyan(%-15logger) --[%-5marker]  %(%kvp) -%msg %ex %n</pattern>
         </encoder>
     </appender>
 
@@ -32,7 +39,7 @@
         </encoder>
     </appender>
 
-    <logger name="pl.kwolszczak.selenium5_2.BaseTest" level="OFF" addivity="false">
+    <logger name="pl.kwolszczak.selenium5_2.BaseTest" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 

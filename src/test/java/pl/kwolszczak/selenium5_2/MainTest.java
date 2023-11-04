@@ -10,27 +10,29 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MarkerFactory;
+import org.slf4j.Marker;
 import pl.kwolszczak.selenium5_2.data.DataArgumentProvider;
 import pl.kwolszczak.selenium5_2.util.RegressionTest;
-
 
 
 class MainTest extends BaseTest {
 
     private String title;
-    protected Logger log = LoggerFactory.getLogger(MainTest.class);
+    private Logger log = LoggerFactory.getLogger(MainTest.class);
+    private static final Marker FATAL_MARKER = MarkerFactory.getMarker("FATAL");
 
     @DisplayName("All Regression")
     @RegressionTest
     @CsvFileSource(resources = "/testData.csv", numLinesToSkip = 1)
     void verify_allWebSites_haveTitle(String url, String expectedResult) {
 
-       // throw new RuntimeException();
+        log.info(FATAL_MARKER,"Fatally error, test log Market{}",testInfo.getDisplayName());
         log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(url);
         title = driver.getTitle();
         Assertions.assertThat(title).isEqualTo(expectedResult);
-        log.info("Test {} finished",testInfo.getDisplayName());
+        log.info(FATAL_MARKER,"Test {} finished",testInfo.getDisplayName());
     }
 
     @Tag("Onet")
@@ -39,6 +41,7 @@ class MainTest extends BaseTest {
     @MethodSource({"pl.kwolszczak.selenium5_2.data.TestData#dataProvider"})
     void verify_webOnet_hasTitle(String expectedResult) {
 
+        log.info(FATAL_MARKER,"Fatally error, test log Market{}",testInfo.getDisplayName());
         log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get(linksData.get("onet"));
         title = driver.getTitle();
