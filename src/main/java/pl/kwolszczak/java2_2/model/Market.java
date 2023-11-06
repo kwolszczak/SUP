@@ -30,6 +30,10 @@ public class Market {
         return this;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public List<Country> getCountries() {
         return countries;
     }

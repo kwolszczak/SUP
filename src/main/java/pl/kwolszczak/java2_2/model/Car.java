@@ -1,6 +1,8 @@
 package pl.kwolszczak.java2_2.model;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Car {
     private Producent producent;
@@ -39,6 +41,25 @@ public class Car {
                 }
             }
         }
+/*        var market=cars.stream()
+                .filter(car->car.hasAutomaticGear==hasAutomaticGear)
+                .filter(car->car.dimension.getTrunkCapacityInLiters()>trankCapacity)
+              //  .filter(car->car.producent.model().equalsIgnoreCase(model))
+                .collect(Collectors.groupingBy(
+                        car->car.producent.model(),
+                        Collectors.flatMapping(car->car.market.getCountries().stream().map(Country::name), Collectors.toSet())));
+        var market2=cars.stream()
+                .filter(car->car.hasAutomaticGear==hasAutomaticGear)
+                .filter(car->car.dimension.getTrunkCapacityInLiters()>trankCapacity)
+                //  .filter(car->car.producent.model().equalsIgnoreCase(model))
+                .collect(Collectors.groupingBy(
+                        car->car.producent.model(),
+                        Collectors.groupingBy(car->car.market.getCountries())
+                ));
+        market2.entrySet().forEach(System.out::println);
+
+        market.entrySet().forEach(System.out::println);*/
+
         if (!isObjectFounded){
             System.out.println(notFoundObjInfo);
         }

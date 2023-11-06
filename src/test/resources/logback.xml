@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration>
-
-<configuration scan="true" debug="true">
+<configuration scan="true" debug="false">
     <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
     <import class="ch.qos.logback.core.ConsoleAppender"/>
     <import class="ch.qos.logback.core.rolling.RollingFileAppender"/>
@@ -43,7 +42,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <root level="INFO">
+    <root level="info">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
