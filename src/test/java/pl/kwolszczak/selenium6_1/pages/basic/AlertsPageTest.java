@@ -1,13 +1,13 @@
 package pl.kwolszczak.selenium6_1.pages.basic;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.kwolszczak.selenium6_1.BaseTest;
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class AlertsPageTest extends BaseTest {
     private Logger log = LoggerFactory.getLogger(AlertsPage.class);
@@ -16,11 +16,11 @@ class AlertsPageTest extends BaseTest {
     @Test
     @RepeatedTest(10)
     @DisplayName("Simple Alert")
-    void alertsPage_SimpleAlertPopUp_whenAccept(){
+    void alertsPage_SimpleAlertPopUp_whenAccept() {
 
-        String expectedResult="OK button pressed";
+        String expectedResult = "OK button pressed";
 
-        log.info("Start test: {}",testInfo.getDisplayName());
+        log.info("Start test: {}", testInfo.getDisplayName());
         driver.get(url);
         String result = new AlertsPage(driver)
                 .acceptSimpleAlert()
@@ -34,10 +34,10 @@ class AlertsPageTest extends BaseTest {
     @DisplayName("Prompt")
     void alertsPage_PromptAlert_whenSendNewName() {
 
-        String name ="TestName";
-        String expectedResult ="Hello "+name+"! How are you today?";
+        String name = "TestName";
+        String expectedResult = "Hello " + name + "! How are you today?";
 
-        log.info("Start test: {}",testInfo.getDisplayName());
+        log.info("Start test: {}", testInfo.getDisplayName());
         driver.get(url);
         String result = new AlertsPage(driver)
                 .fillPromptAlertByName(name)
@@ -51,12 +51,12 @@ class AlertsPageTest extends BaseTest {
     @DisplayName("Confirm alert")
     void alertPage_ConfirmAlert_whenAccept() {
 
-        String expectedResult="You pressed OK!";
+        String expectedResult = "You pressed OK!";
 
-        log.info("Start test: {}",testInfo.getDisplayName());
+        log.info("Start test: {}", testInfo.getDisplayName());
         driver.get(url);
 
-        String result =new AlertsPage(driver)
+        String result = new AlertsPage(driver)
                 .confirmAlertBox()
                 .getConfirmAlertBoxInfo();
 
@@ -68,12 +68,12 @@ class AlertsPageTest extends BaseTest {
     @DisplayName("Cancel alert")
     void alertPage_ConfirmAlert_whenCancel() {
 
-        String expectedResult="You pressed Cancel!";
+        String expectedResult = "You pressed Cancel!";
 
-        log.info("Start test: {}",testInfo.getDisplayName());
+        log.info("Start test: {}", testInfo.getDisplayName());
         driver.get(url);
 
-        String result =new AlertsPage(driver)
+        String result = new AlertsPage(driver)
                 .cancelAlertBox()
                 .getConfirmAlertBoxInfo();
 
