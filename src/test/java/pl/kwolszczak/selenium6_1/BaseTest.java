@@ -24,7 +24,6 @@ public class BaseTest {
     public TestInfo testInfo;
     private static Properties properties;
     protected static WebDriver driver;
-    protected Map<String,String> linksData;
     private static Logger log = LoggerFactory.getLogger(BaseTest.class);
 
     @BeforeEach
@@ -33,7 +32,6 @@ public class BaseTest {
         log.info("Setup Data...");
         this.testInfo = testInfo;
         properties = DataUtil.getProperties("env.properties");
-        //linksData = DataUtil.readCSVToMap("links.csv");
 
         log.info("Setup {} Browser...",properties.getProperty("browser"));
         setBrowser();
@@ -41,6 +39,7 @@ public class BaseTest {
 
     @AfterEach
     void tearDown() {
+
         log.info("Quit driver...");
         driver.quit();
     }
@@ -53,6 +52,7 @@ public class BaseTest {
 
         switch (browser) {
             case "chrome"-> {
+
                 String path = "src\\main\\resources\\";
                 File file = new File(path);
 
