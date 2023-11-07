@@ -3,26 +3,21 @@ package pl.kwolszczak.selenium6_1.pages.basic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pl.kwolszczak.selenium6_1.BaseTest;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
-import static pl.kwolszczak.selenium6_1.util.DataUtil.*;
+import static pl.kwolszczak.selenium6_1.util.DataUtil.checkIfFileExists;
+import static pl.kwolszczak.selenium6_1.util.DataUtil.countFilesInFolder;
 import static pl.kwolszczak.selenium6_1.util.SeleniumUtil.*;
 
-public class FormPagestest extends BaseTest {
-
-    private String url = "http://www.seleniumui.moderntester.pl/form.php";
+class FormPagesTest extends BaseTest {
+    private final String url = "http://www.seleniumui.moderntester.pl/form.php";
 
     @Test
     //@RepeatedTest(10)
@@ -30,8 +25,8 @@ public class FormPagestest extends BaseTest {
     void FormPages_basicTest() {
 
         String expectedResult = "Form send with success";
-
         driver.get(url);
+
         WebElement firstName = driver.findElement(By.cssSelector("input#inputFirstName3"));
         WebElement lastName = driver.findElement(By.cssSelector("input#inputLastName3"));
         WebElement email = driver.findElement(By.cssSelector("input#inputEmail3"));
@@ -67,29 +62,22 @@ public class FormPagestest extends BaseTest {
     @Test
     //@RepeatedTest(10)
     @DisplayName("Number of files test")
-    void test_countFiles() throws InterruptedException {
+    void test_countFiles() {
+        driver.get(url);
 
         String path = "src\\main\\resources\\";
         String fileName = "test-file-to-download.xlsx";
-        File file = new File(path);
         final int initialNumOfFiles = countFilesInFolder(path);
+        WebElement downloadFileBtn = driver.findElement(By.cssSelector("a[role='button']"));
 
-        ChromeOptions options = new ChromeOptions();
-        Map<String, Object> prefs = new HashMap<>();
-        prefs.put("download.default_directory", file.getAbsolutePath());
-        options.setExperimentalOption("prefs", prefs);
-
-        WebDriver chromeDriver = new ChromeDriver(options);
-        chromeDriver.get("http://www.seleniumui.moderntester.pl/form.php");
-
-        chromeDriver.findElement(By.cssSelector("a[role='button']")).click();
+        click(downloadFileBtn);
         await().atMost(10, TimeUnit.SECONDS)
                 .until(() -> countFilesInFolder(path) > initialNumOfFiles);
-        chromeDriver.quit();
 
 
         int currentNumOfFiles = countFilesInFolder(path);
         boolean isFileExist = checkIfFileExists(path + fileName);
+
         assertThat(currentNumOfFiles).isGreaterThan(initialNumOfFiles);
         assertThat(isFileExist).isTrue();
     }

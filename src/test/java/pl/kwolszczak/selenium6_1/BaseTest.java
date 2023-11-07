@@ -12,8 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.kwolszczak.selenium6_1.util.DataUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -51,11 +53,19 @@ public class BaseTest {
 
         switch (browser) {
             case "chrome"-> {
+                String path = "src\\main\\resources\\";
+                File file = new File(path);
 
                 log.debug("Chrome options loaded from properties");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setBrowserVersion(version);
+
+                log.debug("Setup default download directory");
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("download.default_directory", file.getAbsolutePath());
+                chromeOptions.setExperimentalOption("prefs", prefs);
                 driver = new ChromeDriver(chromeOptions);
+
             }
             case "firefox" -> {
 
