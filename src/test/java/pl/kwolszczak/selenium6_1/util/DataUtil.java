@@ -48,4 +48,28 @@ public class DataUtil {
         return csvData;
     }
 
+    public static int countFilesInFolder(String folderPath) {
+        File folder = new File(folderPath);
+
+        if (folder.exists() && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            int fileCount = 0;
+
+            for (File file : files) {
+                if (file.isFile()) {
+                    fileCount++;
+                }
+            }
+            return fileCount;
+        } else {
+            System.out.println("The specified folder does not exist or is not a directory.");
+            return 0;
+        }
+    }
+
+    public static boolean checkIfFileExists(String filePath) {
+        File file = new File(filePath);
+        return file.exists();
+    }
+
 }
