@@ -1,11 +1,16 @@
 package pl.kwolszczak.selenium6_1.pages.basic;
 
+import org.awaitility.Awaitility;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.kwolszczak.selenium6_1.BaseTest;
+
+import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -78,6 +83,40 @@ class AlertsPageTest extends BaseTest {
                 .getConfirmAlertBoxInfo();
 
         assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    //  @RepeatedTest(10)
+    @DisplayName("Disappearing alert")
+    void alertPage_disappearing() throws InterruptedException {
+
+        String expectedResult = "You pressed Cancel!";
+
+        log.info("Start test: {}", testInfo.getDisplayName());
+        driver.get(url);
+        driver.findElement(By.cssSelector("#delayed-alert")).click();
+
+  /*      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));  // Set a maximum wait time of 10 seconds
+        wait.until(ExpectedConditions.alertIsPresent());
+*/
+
+        Awaitility.await()
+                .atMost(Duration.ofSeconds(10))
+                .until(() -> {
+                    try {
+                        Alert alert = driver.switchTo().alert();
+                        return true;
+                    } catch (Exception e) {
+                        return false;
+                    }
+                });
+
+        // Handle the alert (accept, dismiss, etc.)
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+
+
+
     }
 
 }
