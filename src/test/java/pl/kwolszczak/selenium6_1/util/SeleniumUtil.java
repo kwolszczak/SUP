@@ -1,11 +1,13 @@
 package pl.kwolszczak.selenium6_1.util;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class SeleniumUtil {
 
@@ -20,7 +22,7 @@ public class SeleniumUtil {
         webElement.click();
     }
 
-    public static void selectMulti(WebElement webElement, String... values) {
+    public static void selectByValues(WebElement webElement, String... values) {
         Select select = new Select(webElement);
         for (var value : values) {
             select.selectByValue(value);
@@ -36,6 +38,15 @@ public class SeleniumUtil {
     public static void clickRandom(List<WebElement> webElements, int numberOfElements){
         int value= random.nextInt(0,numberOfElements);
         webElements.get(value).click();
+    }
 
+    public static String switchToSecondWindow(WebDriver driver){
+        Set<String> windowHandles = driver.getWindowHandles();
+        Iterator<String> iterator = windowHandles.iterator();
+        String firstWindowHandle = iterator.next();
+        String secondWindowHandle = iterator.next();
+        driver.switchTo().window(secondWindowHandle);
+
+        return firstWindowHandle;
     }
 }
