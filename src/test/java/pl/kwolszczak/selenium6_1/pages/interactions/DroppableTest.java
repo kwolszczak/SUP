@@ -3,28 +3,29 @@ package pl.kwolszczak.selenium6_1.pages.interactions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pl.kwolszczak.selenium6_1.BaseTest;
 
-public class DroppableTest extends BaseTest {
+import static org.assertj.core.api.Assertions.assertThat;
 
-        private String url ="http://automation-practice.emilos.pl/droppable.php";
+class DroppableTest extends BaseTest {
 
-        @Test
-        //@RepeatedTest(10)
-        @DisplayName("Selectable")
-        void droppablePageTest_simple() throws InterruptedException {
-                driver.get(url);
-                WebElement source = driver.findElement(By.cssSelector("#draggable"));
-                WebElement target = driver.findElement(By.cssSelector("#droppable"));
+    @Test
+    //@RepeatedTest(10)
+    @DisplayName("Selectable")
+    void droppablePageTest_simple() throws InterruptedException {
 
-                Actions actions = new Actions(driver);
-                actions.dragAndDrop(source,target).build().perform();
+        String url = "http://automation-practice.emilos.pl/droppable.php";
+        driver.get(url);
+        var source = driver.findElement(By.cssSelector("#draggable"));
+        var target = driver.findElement(By.cssSelector("#droppable"));
+        var expectedResult = "Dropped!";
 
-                System.out.println(target.findElement(By.xpath("./p")).getText());
-                Thread.sleep(5000);
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(source, target).build().perform();
 
-        }
+        var result = target.findElement(By.xpath("./p")).getText();
+        assertThat(result).isEqualTo(expectedResult);
+    }
 }
 
