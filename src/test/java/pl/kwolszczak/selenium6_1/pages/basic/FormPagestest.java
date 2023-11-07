@@ -60,6 +60,8 @@ public class FormPagestest extends BaseTest {
 
         // Set the file path to the file input element
         String filePath = "C:\\Users\\kwolszczak_adm\\IdeaProjects\\SUP\\log\\mojPlikBezNazwy.log"; // Replace with the actual file path
+       /* File f = new File("\\src    \\main\\resources\\file.txt");
+        fPath = f.getAbsolutePath();*/
         fileInput.sendKeys(filePath);
 
         driver.findElement(By.cssSelector("button[type=submit]")).click();
