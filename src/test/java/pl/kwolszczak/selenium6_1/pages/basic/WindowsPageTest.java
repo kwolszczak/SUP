@@ -8,13 +8,15 @@ import pl.kwolszczak.selenium6_1.BaseTest;
 import static pl.kwolszczak.selenium6_1.util.SeleniumUtil.*;
 import static pl.kwolszczak.selenium6_1.util.TableUtil.*;
 
-public class WindowsPageTest extends BaseTest {
+class WindowsPageTest extends BaseTest {
+
     private String url = "http://www.seleniumui.moderntester.pl/windows-tabs.php";
 
     @Test
     //@RepeatedTest(10)
     @DisplayName("Windows Page Test")
     void windowsPageTest_simpleTest() {
+
         driver.get(url);
         String  mainWindowHandle;
         var newBrowserWindow = driver.findElement(By.cssSelector("#newBrowserWindow"));

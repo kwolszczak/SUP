@@ -14,6 +14,7 @@ import static pl.kwolszczak.selenium6_1.util.DataUtil.*;
 import static pl.kwolszczak.selenium6_1.util.SeleniumUtil.*;
 
 class FormPageTest extends BaseTest {
+
     private final String url = "http://www.seleniumui.moderntester.pl/form.php";
 
     @Test
@@ -64,7 +65,7 @@ class FormPageTest extends BaseTest {
         driver.get(url);
         var path = "src\\main\\resources\\";
         var fileName = "test-file-to-download.xlsx";
-        final int initialNumOfFiles = countFilesInFolder(path);
+        var initialNumOfFiles = countFilesInFolder(path);
         var downloadFileBtn = driver.findElement(By.cssSelector("a[role='button']"));
 
         click(downloadFileBtn);

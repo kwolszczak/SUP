@@ -31,6 +31,7 @@ class AlertsPageTest extends BaseTest {
                 .acceptSimpleAlert()
                 .getSimpleAlertInfo();
 
+
         assertThat(result).isEqualTo(expectedResult);
     }
 
