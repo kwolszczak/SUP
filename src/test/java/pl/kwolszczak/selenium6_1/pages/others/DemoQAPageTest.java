@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DemoQAPageTest extends BaseTest {
+class DemoQAPageTest extends BaseTest {
 
     @Test
     //@RepeatedTest(10)
