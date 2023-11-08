@@ -24,15 +24,12 @@ class SelectableTest extends BaseTest {
 
         driver.get(url);
         var expectedResult = "#1 #3 #4";
-        var options = new String[]{"1", "3", "4"};
+        var options = Arrays.asList("1", "3", "4");
         var allBtn = driver.findElements(By.cssSelector("#selectable li"));
         var actions = new Actions(driver);
 
         var listBtn = allBtn.stream()
-                .peek(WebElement::getText)
-                .filter(webElement -> Arrays.stream(options)
-                        .toList()
-                        .contains((webElement.getText().split("\\s+"))[1]))
+                .filter(webElement -> options.contains((webElement.getText().split("\\s+"))[1]))
                 .toList();
 
         actions.keyDown(Keys.LEFT_CONTROL).build().perform();
