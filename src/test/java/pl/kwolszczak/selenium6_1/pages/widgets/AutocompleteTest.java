@@ -16,26 +16,26 @@ class AutocompleteTest extends BaseTest {
 
     private final String url = "http://www.seleniumui.moderntester.pl/autocomplete.php";
     private final Random random = new Random();
+    private final Duration waitDuration =Duration.ofSeconds(5);
 
     @Test
     //@RepeatedTest(10)
     @DisplayName("Autocomplete")
     void autocompleteTest_basicTest() {
-
         driver.get(url);
-        var wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        var searchInp = driver.findElement(By.cssSelector("#search"));
+
+        var wait = new WebDriverWait(driver, waitDuration);
+        var searchInp = driver.findElement(By.id("search"));
 
         searchInp.sendKeys("a");
         var elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By.cssSelector("#ui-id-1 li"))));
-
         elements.forEach(webElement -> System.out.println(webElement.getText()));
 
         var index = random.nextInt(0, elements.size());
         var text = elements.get(index).getText();
         elements.get(index).click();
-        var textFromInp = searchInp.getAttribute("value");
 
+        var textFromInp = searchInp.getAttribute("value");
         assertThat(textFromInp).isEqualTo(text);
     }
 }
