@@ -20,7 +20,7 @@ class AutocompleteTest extends BaseTest {
     @Test
     //@RepeatedTest(10)
     @DisplayName("Autocomplete")
-    void autocompleteTest_basicTest() throws InterruptedException {
+    void autocompleteTest_basicTest() {
 
         driver.get(url);
         var wait = new WebDriverWait(driver, Duration.ofSeconds(5));
