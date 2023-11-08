@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.kwolszczak.selenium6_1.BaseTest;
 
+
 public class Draggable extends BaseTest {
 
     private String url = "http://www.seleniumui.moderntester.pl/draggable.php";
@@ -57,4 +58,5 @@ public class Draggable extends BaseTest {
                 .perform();
 
     }
+
 }
