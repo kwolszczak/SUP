@@ -2,6 +2,7 @@ package pl.kwolszczak.selenium6_1.pages.basic;
 
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
@@ -18,8 +19,8 @@ class AlertsPageTest extends BaseTest {
     private final Logger log = LoggerFactory.getLogger(AlertsPage.class);
     private final String url = "http://www.seleniumui.moderntester.pl/alerts.php";
 
-    @Test
-    //  @RepeatedTest(10)
+    //@Test
+   @RepeatedTest(10)
     @DisplayName("Simple Alert Pop up")
     void alertsPage_SimpleAlertPopUp_whenAccept() {
 

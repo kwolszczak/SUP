@@ -1,6 +1,7 @@
 package pl.kwolszczak.selenium6_1.pages.basic;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import pl.kwolszczak.selenium6_1.BaseTest;
@@ -17,8 +18,8 @@ class FormPageTest extends BaseTest {
 
     private final String url = "http://www.seleniumui.moderntester.pl/form.php";
 
-    @Test
-    //@RepeatedTest(10)
+    //@Test
+    @RepeatedTest(10)
     @DisplayName("Form test")
     void formPageTest_basicTest() {
 

@@ -1,6 +1,7 @@
 package pl.kwolszczak.selenium6_1.pages.others;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DemoQAPageTest extends BaseTest {
 
-    @Test
-    //@RepeatedTest(10)
+    //@Test
+    @RepeatedTest(10)
     @DisplayName("DemoQa")
     void DemoQAPageTest_simpleTest() throws InterruptedException {
 

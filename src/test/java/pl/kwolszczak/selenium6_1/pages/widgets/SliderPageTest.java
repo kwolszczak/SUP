@@ -1,6 +1,7 @@
 package pl.kwolszczak.selenium6_1.pages.widgets;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,8 +15,8 @@ class SliderPageTest extends BaseTest {
 
     private String url = "http://www.seleniumui.moderntester.pl/slider.php";
 
-    @Test
-    //@RepeatedTest(10)
+   // @Test
+    @RepeatedTest(10)
     @DisplayName("Slider")
     void sliderPageTest_simpleTest() {
 

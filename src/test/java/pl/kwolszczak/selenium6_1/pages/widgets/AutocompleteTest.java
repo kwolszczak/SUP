@@ -1,6 +1,7 @@
 package pl.kwolszczak.selenium6_1.pages.widgets;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,8 +19,8 @@ class AutocompleteTest extends BaseTest {
     private final Random random = new Random();
     private final Duration waitDuration =Duration.ofSeconds(5);
 
-    @Test
-    //@RepeatedTest(10)
+    //@Test
+    @RepeatedTest(10)
     @DisplayName("Autocomplete")
     void autocompleteTest_basicTest() {
         driver.get(url);
@@ -28,7 +29,7 @@ class AutocompleteTest extends BaseTest {
         var searchInp = driver.findElement(By.id("search"));
 
         searchInp.sendKeys("a");
-        var elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By.cssSelector("#ui-id-1 li"))));
+        var elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By.cssSelector("#ui-id-1 li div"))));
         elements.forEach(webElement -> System.out.println(webElement.getText()));
 
         var index = random.nextInt(0, elements.size());

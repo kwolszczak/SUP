@@ -20,8 +20,8 @@ class SelectmenuTest extends BaseTest {
     private final Random random = new Random();
 
 
-    @Test
-    //@RepeatedTest(10)
+    //@Test
+    @RepeatedTest(10)
     @DisplayName("select menu")
     void selectMenuTest_simpleTest() {
 

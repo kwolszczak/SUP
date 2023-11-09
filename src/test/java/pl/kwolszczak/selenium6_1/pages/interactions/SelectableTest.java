@@ -2,6 +2,7 @@ package pl.kwolszczak.selenium6_1.pages.interactions;
 
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,8 +18,8 @@ class SelectableTest extends BaseTest {
 
     private String url = "http://automation-practice.emilos.pl/selectable.php";
 
-    @Test
-    //@RepeatedTest(10)
+    //@Test
+    @RepeatedTest(10)
     @DisplayName("Selectable")
     void windowsPageTest_simple() {
 

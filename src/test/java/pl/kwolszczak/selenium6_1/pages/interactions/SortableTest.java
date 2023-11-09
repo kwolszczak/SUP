@@ -1,6 +1,7 @@
 package pl.kwolszczak.selenium6_1.pages.interactions;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -18,8 +19,8 @@ class SortableTest extends BaseTest {
 
     private Logger log = LoggerFactory.getLogger(SortableTest.class);
 
-    @Test
-    //@RepeatedTest(10)
+    //@Test
+    @RepeatedTest(10)
     @DisplayName("Sortable")
     void sortablePageTest_simpleTest() {
 
