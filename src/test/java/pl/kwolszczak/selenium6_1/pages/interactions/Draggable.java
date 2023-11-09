@@ -37,26 +37,18 @@ public class Draggable extends BaseTest {
         log.info("Browser actual size after correction: x:{} y:{}", X_WIN, Y_WIN);
 
         //0->1 : up right corner
-        actions.dragAndDropBy(element, X_WIN - xPosition - X_ELEM, -yPosition)
-                .build()
-                .perform();
+        actions.dragAndDropBy(element, X_WIN - xPosition - X_ELEM, -yPosition).perform();
 
         //1->2 :bot rig
-        actions.dragAndDropBy(element, 0, Y_WIN - Y_ELEM)
-                .build()
-                .perform();
+        actions.dragAndDropBy(element, 0, Y_WIN - Y_ELEM).perform();
 
         //2->3 :to center
         var xPositionCen = element.getLocation().getX() - X_CENT;
         var yPositionCen = element.getLocation().getY() - Y_CENT;
-        actions.dragAndDropBy(element, -xPositionCen, -yPositionCen)
-                .build()
-                .perform();
+        actions.dragAndDropBy(element, -xPositionCen, -yPositionCen).perform();
 
         //3->4 :to left bot
-        actions.dragAndDropBy(element, -X_CENT, Y_CENT - Y_ELEM)
-                .build()
-                .perform();
+        actions.dragAndDropBy(element, -X_CENT, Y_CENT - Y_ELEM).perform();
 
     }
 
