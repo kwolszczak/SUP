@@ -47,15 +47,21 @@ public class SeleniumUtil {
     }
 
     public static String switchToSecondWindow(WebDriver driver){
-        log.info("Switching to second window");
-        Set<String> windowHandles = driver.getWindowHandles();
-        Iterator<String> iterator = windowHandles.iterator();
-        String firstWindowHandle = iterator.next();
-        String secondWindowHandle = iterator.next();
-        log.debug("first window handle {} second window handle: {}",firstWindowHandle,secondWindowHandle);
-        driver.switchTo().window(secondWindowHandle);
 
-        return firstWindowHandle;
+        String originalWindow = driver.getWindowHandle();
+
+        Set<String> windowHandles = driver.getWindowHandles();
+     /*   Iterator<String> iterator = windowHandles.iterator();
+        String secondWindowHandle = iterator.next();
+        driver.switchTo().window(secondWindowHandle);*/
+
+        for (String windowHandle : windowHandles) {
+            if(!originalWindow.contentEquals(windowHandle)) {
+                driver.switchTo().window(windowHandle);
+                break;
+            }
+        }
+        return originalWindow;
     }
 
     public static boolean scrollAndCheckVisibility(WebDriver driver,int pixels) {
