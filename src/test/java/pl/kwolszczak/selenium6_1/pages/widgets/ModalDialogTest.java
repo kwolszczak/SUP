@@ -20,14 +20,13 @@ class ModalDialogTest extends BaseTest {
     //@Test
     @RepeatedTest(10)
     @DisplayName("Menu")
-    void menuTest_simpleTest() throws InterruptedException {
+    void menuTest_simpleTest() {
 
         driver.get(url);
         var createUser = driver.findElement(By.id("create-user"));
         var user = new User("Tom", "Ford@grantorino.it", "admin123");
 
         click(createUser);
-        switchToSecondWindow(driver);
 
         var name = driver.findElement(By.id("name"));
         var email = driver.findElement(By.id("email"));

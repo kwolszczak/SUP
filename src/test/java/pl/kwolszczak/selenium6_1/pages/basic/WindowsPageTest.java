@@ -4,7 +4,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.kwolszczak.selenium6_1.BaseTest;
+
+import java.time.Duration;
 
 import static pl.kwolszczak.selenium6_1.util.SeleniumUtil.*;
 import static pl.kwolszczak.selenium6_1.util.TableUtil.*;
@@ -17,6 +21,8 @@ class WindowsPageTest extends BaseTest {
     @RepeatedTest(10)
     @DisplayName("Windows Page Test")
     void windowsPageTest_simpleTest() {
+
+
 
         driver.get(url);
         String  mainWindowHandle;
@@ -40,6 +46,7 @@ class WindowsPageTest extends BaseTest {
 
         click(newBrowserTab);
         switchToSecondWindow(driver);
+
         var rows2 = driver.findElements(By.cssSelector("table tbody tr"));
         var data2 = getTableData(rows2, 4000, "Switzerland");
         printData(data2);

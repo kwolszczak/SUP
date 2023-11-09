@@ -3,12 +3,15 @@ package pl.kwolszczak.selenium6_1.util;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -48,9 +51,12 @@ public class SeleniumUtil {
 
     public static String switchToSecondWindow(WebDriver driver){
 
+        log.info("switch to second window");
+        var wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         String originalWindow = driver.getWindowHandle();
-
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
         Set<String> windowHandles = driver.getWindowHandles();
+        log.debug("switch to second window: num of handlers {}",windowHandles.size());
      /*   Iterator<String> iterator = windowHandles.iterator();
         String secondWindowHandle = iterator.next();
         driver.switchTo().window(secondWindowHandle);*/
