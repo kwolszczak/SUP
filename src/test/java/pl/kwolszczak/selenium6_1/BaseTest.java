@@ -8,9 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.kwolszczak.selenium6_1.util.DataUtil;
+import pl.kwolszczak.selenium6_1.util.SeleniumUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,8 +24,9 @@ import java.util.Properties;
 public class BaseTest {
 
     public TestInfo testInfo;
-    private static Properties properties;
     protected static WebDriver driver;
+    protected WebDriverWait wait;
+    private static Properties properties;
     private static Logger log = LoggerFactory.getLogger(BaseTest.class);
 
     @BeforeEach
@@ -33,8 +36,11 @@ public class BaseTest {
         this.testInfo = testInfo;
         properties = DataUtil.getProperties("env.properties");
 
+
         log.info("Setup {} Browser...",properties.getProperty("browser"));
         setBrowser();
+        wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+        SeleniumUtil.init(driver);
     }
 
     @AfterEach

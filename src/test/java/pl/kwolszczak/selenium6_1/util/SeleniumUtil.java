@@ -21,6 +21,13 @@ public class SeleniumUtil {
 
     private static Random random = new Random();
     private static Logger log = LoggerFactory.getLogger(SeleniumUtil.class);
+    private static WebDriver seleniumDriver;
+    private static WebDriverWait wait;
+
+    public static void init(WebDriver driver) {
+        seleniumDriver = driver;
+        wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
 
     public static void fill(WebElement webElement, String text){
         webElement.clear();
@@ -47,6 +54,21 @@ public class SeleniumUtil {
     public static void clickRandom(List<WebElement> webElements, int numberOfElements){
         int value= random.nextInt(0,numberOfElements);
         webElements.get(value).click();
+    }
+
+    public static void acceptAlert(){
+        wait.until(ExpectedConditions.alertIsPresent());
+        seleniumDriver.switchTo().alert().accept();
+    }
+    public static void dismissAlert(){
+        wait.until(ExpectedConditions.alertIsPresent());
+        seleniumDriver.switchTo().alert().dismiss();
+    }
+    public static void acceptAlert( String promptValue){
+        wait.until(ExpectedConditions.alertIsPresent());
+        var alert = seleniumDriver.switchTo().alert();
+        alert.sendKeys(promptValue);
+        alert.accept();
     }
 
     public static String switchToSecondWindow(WebDriver driver){
