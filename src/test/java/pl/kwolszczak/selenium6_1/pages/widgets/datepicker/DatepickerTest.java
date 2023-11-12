@@ -19,7 +19,6 @@ import static pl.kwolszczak.selenium6_1.pages.widgets.datepicker.CalendarUtil.se
 
 class DatepickerTest extends BaseTest {
     private final String url = "http://www.seleniumui.moderntester.pl/datepicker.php";
-    private Random random = new Random();
 
     //@Test
     @RepeatedTest(1)
@@ -33,8 +32,8 @@ class DatepickerTest extends BaseTest {
         String today = now.format(formatter);
         String nextMonth1Day = now.plusMonths(1).withDayOfMonth(1).format(formatter);
         String nextYear31January = now.plusYears(1).withMonth(1).withDayOfMonth(31).format(formatter);
-        String randomDayOfPrevMonth = randomDate("2023-10-01", "2023-10-31"); // random day prev month
-        String randomDayOfPrevYear = randomDate("2022-01-01", "2022-12-31"); // random day from last year
+        String randomDayOfPrevMonth = randomDate("2023-10-01", "2023-10-31");
+        String randomDayOfPrevYear = randomDate("2022-01-01", "2022-12-31");
         var listDate = List.of(today, nextMonth1Day, nextYear31January, nextYear31January, randomDayOfPrevMonth, randomDayOfPrevYear);
 
 
