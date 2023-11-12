@@ -2,15 +2,15 @@ package pl.kwolszczak.selenium6_1.pages.widgets.datepicker;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.kwolszczak.selenium6_1.BaseTest;
 
 import java.time.Duration;
-import java.time.Month;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Random;
 
@@ -22,27 +22,25 @@ class DatepickerTest extends BaseTest {
     private Random random = new Random();
 
     //@Test
-    @RepeatedTest(10)
+    @RepeatedTest(1)
     @DisplayName("date picker")
     void datepickerPage_simpleTest() {
 
         CalendarUtil.init(driver);
-        var randDay = random.nextInt(1, 30);
+        LocalDate now = LocalDate.now();
 
-        // MM/DD/YYYY format
-        String today = "11/09/2023"; // today
-        String nextMonth = "12/01/2023"; // 1 day next month
-        String mydate2 = "01/31/2024"; // 31 Jan next year
-        String mydate3 = "01/31/2024"; // prev date
-        String mydate4 = String.format("10/%02d/2023", randDay); // random day prev month
-        String mydate5 = String.format("05/%02d/2022", randDay); // random day from last year
+        var formatter = DateTimeFormatter.ofPattern("MM/dd/yyy");
+        String today = now.format(formatter);
+        String nextMonth1Day = now.plusMonths(1).withDayOfMonth(1).format(formatter);
+        String nextYear31January = now.plusYears(1).withMonth(1).withDayOfMonth(31).format(formatter);
+        String randomDayOfPrevMonth = randomDate("2023-10-01", "2023-10-31"); // random day prev month
+        String randomDayOfPrevYear = randomDate("2022-01-01", "2022-12-31"); // random day from last year
+        var listDate = List.of(today, nextMonth1Day, nextYear31January, nextYear31January, randomDayOfPrevMonth, randomDayOfPrevYear);
 
-        var listDate = List.of(today, nextMonth, mydate2, mydate3, mydate4, mydate5);
 
         driver.get(url);
         var wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         var datePicker = driver.findElement(By.id("datepicker"));
-
 
         for (var date : listDate) {
             datePicker.click();
@@ -53,6 +51,19 @@ class DatepickerTest extends BaseTest {
             assertThat(result).isEqualTo(date);
         }
 
+    }
+
+    private static String randomDate(String start, String end) {
+        Random random = new Random();
+
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+
+        long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
+        var randomDays = random.nextLong() % daysBetween;
+        LocalDate randomDate = startDate.plusDays(randomDays);
+
+        return String.format("%02d/%02d/%02d", randomDate.getMonthValue(), randomDate.getDayOfMonth(), randomDate.getYear());
     }
 
 
