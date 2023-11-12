@@ -11,6 +11,8 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 import java.util.Random;
 
@@ -30,7 +32,8 @@ class DatepickerTest extends BaseTest {
 
         var formatter = DateTimeFormatter.ofPattern("MM/dd/yyy");
         String today = now.format(formatter);
-        String nextMonth1Day = now.plusMonths(1).withDayOfMonth(1).format(formatter);
+        //   String nextMonth1Day =now.plusMonths(1).withDayOfMonth(1).format(formatter);
+        String nextMonth1Day = now.with(TemporalAdjusters.firstDayOfNextMonth()).format(formatter);
         String nextYear31January = now.plusYears(1).withMonth(1).withDayOfMonth(31).format(formatter);
         String randomDayOfPrevMonth = randomDate("2023-10-01", "2023-10-31");
         String randomDayOfPrevYear = randomDate("2022-01-01", "2022-12-31");
