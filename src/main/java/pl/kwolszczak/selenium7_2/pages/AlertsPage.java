@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium6_1.pages.basic;
+package pl.kwolszczak.selenium7_2.pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
