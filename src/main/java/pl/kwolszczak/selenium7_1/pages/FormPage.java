@@ -1,16 +1,16 @@
-package pl.kwolszczak.selenium7_2.pages;
+package pl.kwolszczak.selenium7_1.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pl.kwolszczak.selenium7_2.util.Profession;
-import pl.kwolszczak.selenium7_2.util.SeleniumUtil;
+import pl.kwolszczak.selenium7_1.util.Profession;
+import pl.kwolszczak.selenium7_1.util.SeleniumUtil;
 
 import java.io.File;
 import java.util.List;
 
-import static pl.kwolszczak.selenium7_2.util.SeleniumUtil.*;
+import static pl.kwolszczak.selenium7_1.util.SeleniumUtil.*;
 
 public class FormPage {
 
@@ -114,7 +114,8 @@ public class FormPage {
     }
 
     public FormPage chooseFile(String fileName) {
-        File file = new File("src\\main\\resources\\" + fileName + ".txt");
+
+        File file = new File(properties.getProperty("download.default_directory") + fileName + ".txt");
         String filePath = file.getAbsolutePath();
         fill(chooseFileBtn, filePath);
         return this;

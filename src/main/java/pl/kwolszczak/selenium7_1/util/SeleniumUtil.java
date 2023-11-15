@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium7_2.util;
+package pl.kwolszczak.selenium7_1.util;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
 
@@ -19,10 +20,17 @@ public class SeleniumUtil {
     private static Random random = new Random();
     private static WebDriver seleniumDriver;
     private static WebDriverWait wait;
+   public static Properties properties;
 
-    public static void init(WebDriver driver) {
+    public static void init(WebDriver driver)  {
         seleniumDriver = driver;
         wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        try {
+            properties = DataUtil.getProperties("env.properties");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void fill(WebElement webElement, String text){

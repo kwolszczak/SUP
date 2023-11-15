@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium7_2;
+package pl.kwolszczak.selenium7_1;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,8 +11,9 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.kwolszczak.selenium6_1.util.DataUtil;
-import pl.kwolszczak.selenium6_1.util.SeleniumUtil;
+
+import pl.kwolszczak.selenium7_1.utils.Browser;
+import pl.kwolszczak.selenium7_1.utils.DataUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,10 +25,10 @@ import java.util.Properties;
 public class BaseTest {
 
     public TestInfo testInfo;
-    protected static WebDriver driver;
+    protected  WebDriver driver;
     protected WebDriverWait wait;
-    private static Properties properties;
-    private static Logger log = LoggerFactory.getLogger(BaseTest.class);
+    public static Properties properties;
+    private final Logger log = LoggerFactory.getLogger(BaseTest.class);
 
     @BeforeEach
     void setUp(TestInfo testInfo) throws IOException {
@@ -40,7 +41,6 @@ public class BaseTest {
         log.info("Setup {} Browser...",properties.getProperty("browser"));
         setBrowser();
         wait =new WebDriverWait(driver, Duration.ofSeconds(10));
-        SeleniumUtil.init(driver);
     }
 
     @AfterEach
@@ -50,16 +50,16 @@ public class BaseTest {
         driver.quit();
     }
 
-    private static void setBrowser() {
+    private void setBrowser() {
 
-        String browser =properties.getProperty("browser");
+        Browser browser = Browser.valueOf(properties.getProperty("browser").toUpperCase());
         String version =properties.getProperty("browserVersion");
         log.debug("init browser: {} version: {}",browser, version);
 
         switch (browser) {
-            case "chrome"-> {
+            case CHROME-> {
 
-                String path = "src\\main\\resources\\";
+                String path = properties.getProperty("download.default_directory");
                 File file = new File(path);
 
                 log.debug("Chrome options loaded from properties");
@@ -71,29 +71,26 @@ public class BaseTest {
                 prefs.put("download.default_directory", file.getAbsolutePath());
                 chromeOptions.setExperimentalOption("prefs", prefs);
                 driver = new ChromeDriver(chromeOptions);
-
             }
-            case "firefox" -> {
+            case FIREFOX -> {
 
                 log.debug("Firefox options loaded from properties");
                 driver = new FirefoxDriver();
             }
-            case "safari" -> {
+            case SAFARI -> {
 
                 log.debug("Safari options loaded from properties");
                 driver = new SafariDriver();
             }
             default -> {
 
-                log.error("can't load browser config from properties");
+                log.error("can't load browser config from properties.");
                 driver = new ChromeDriver();
             }
         }
 
         log.debug("Setting up windows maximum size");
         driver.manage().window().maximize();
-        log.warn("Setting up implicitly wait timeout - 5s");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 }
 

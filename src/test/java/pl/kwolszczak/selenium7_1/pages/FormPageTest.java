@@ -1,18 +1,17 @@
-package pl.kwolszczak.selenium7_2.pages;
+package pl.kwolszczak.selenium7_1.pages;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.kwolszczak.selenium7_2.BaseTest;
-import pl.kwolszczak.selenium7_2.util.Profession;
+import pl.kwolszczak.selenium7_1.BaseTest;
+import pl.kwolszczak.selenium7_1.util.Profession;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FormPageTest extends BaseTest {
 
     private String url = "http://www.seleniumui.moderntester.pl/form.php";
 
     @Test
-    void simpleTest(){
+    void formPage_signIn_withRandoData() {
 
         String expectedResult = "Form send with success";
 
@@ -30,7 +29,7 @@ class FormPageTest extends BaseTest {
                 .signIn();
 
         var result = fp.getSignInInfo();
-        Assertions.assertThat(result).isEqualTo(expectedResult);
+        assertThat(result).isEqualTo(expectedResult);
     }
 
 }

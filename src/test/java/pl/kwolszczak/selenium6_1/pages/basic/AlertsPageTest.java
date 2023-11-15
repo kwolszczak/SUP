@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.kwolszczak.selenium6_1.BaseTest;
-import pl.kwolszczak.selenium7_2.pages.AlertsPage;
+import pl.kwolszczak.selenium7_1.pages.AlertsPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.kwolszczak.selenium6_1.util.SeleniumUtil.*;
