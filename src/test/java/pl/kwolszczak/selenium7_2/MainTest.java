@@ -48,7 +48,7 @@ class MainTest extends BaseTest {
         int x=PropertyStore.BROWSER_WEBELEMENT_TIMEOUT.getIntValue() + 1;
         System.out.println(x);
      System.out.println( PropertyStore.BROWSER.getValue());
-        System.out.println(System.getProperty("browser"));
+        System.out.println(System.getProperty("appUrl")); // to nie dziala ??? powinno byc zaczytane w PropertyStore???
 
         log.info("Setup test {}",testInfo.getTestMethod().get().getName());
         driver.get("https://logback.qos.ch/");
