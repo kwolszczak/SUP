@@ -1,5 +1,7 @@
 package pl.kwolszczak.selenium7_2.configuration;
 
+import org.junit.platform.commons.util.StringUtils;
+
 import java.io.*;
 import java.util.Objects;
 import java.util.Properties;
@@ -61,5 +63,10 @@ public enum PropertyStore {
     public boolean getBooleanValue(){
         return Boolean.parseBoolean(getPropertyValue(this.key));
     }
+
+/*    // --------to do
+    public boolean isSpecified() {
+        return StringUtils.isNotEmpty(this.value);
+    }*/
 
 }
