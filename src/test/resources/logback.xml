@@ -18,7 +18,7 @@
 
     <appender name="STDOUT" class="ConsoleAppender">
         <encoder class="PatternLayoutEncoder">
-            <pattern>[%thread] %highlight(%-5level) %cyan(%-15logger) --[%-5marker]  %(%kvp) -%msg %ex %n</pattern>
+            <pattern>[%thread] %highlight(%-5level) %cyan(%-15logger) --%(%kvp) -%msg %ex %n</pattern>
         </encoder>
     </appender>
 
