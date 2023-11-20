@@ -10,19 +10,19 @@ class TablePageTest extends BaseTest {
     private String url = "http://www.seleniumui.moderntester.pl/table.php";
 
     @Test
-    void tablePage_findData() {
+    void tablePage_findRows_whenStatesEqualItalyOrFrance_andWhenHeightGreaterThan4000m() {
 
-        int expectedResult = 5;
+        int searchedRowsSize = 5;
         driver.get(url);
 
-        var tp = new TablePage(driver)
-                .setComponentsByState("Italy", "France")
-                .setComponentsByHeightGreaterThan(4000);
+        var tablePage = new TablePage(driver)
+                .filterRowsByState("Italy", "France")
+                .filterRowsByHeightGreaterThan(4000);
 
-        var result = tp.getComponentsData();
-        result.forEach(System.out::println);
+        var actualRows = tablePage.getRows();
+        actualRows.forEach(System.out::println);
 
-        assertThat(result.size()).isEqualTo(expectedResult);
+        assertThat(actualRows.size()).isEqualTo(searchedRowsSize);
     }
 
 }

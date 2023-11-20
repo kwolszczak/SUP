@@ -13,7 +13,7 @@ import java.util.List;
 public class TablePage {
 
     private WebDriver driver;
-    private List<TableRowComponent> components;
+    private List<TableRowComponent> tableRows;
 
     @FindBy(xpath = "//tbody/tr")
     private List<WebElement> table;
@@ -22,27 +22,27 @@ public class TablePage {
     public TablePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        setAllComponents();
+        setAllRows();
     }
 
-    private void setAllComponents() {
-        components = new LinkedList<>();
-        components = table.stream().map(TableRowComponent::new).toList();
+    private void setAllRows() {
+        tableRows = new LinkedList<>();
+        tableRows = table.stream().map(TableRowComponent::new).toList();
     }
 
-    public TablePage setComponentsByPeaks(String peak) {
-        components = components.stream().filter(component -> component.getPeak().equals(peak)).toList();
+    public TablePage filterRowsByPeaks(String peak) {
+        tableRows = tableRows.stream().filter(component -> component.getPeak().equals(peak)).toList();
         return this;
     }
 
-    public TablePage setComponentsByMountainRange(String mountainRange) {
-        components = components.stream().filter(component -> component.getMountainRange().equals(mountainRange)).toList();
+    public TablePage filterRowsByMountainRange(String mountainRange) {
+        tableRows = tableRows.stream().filter(component -> component.getMountainRange().equals(mountainRange)).toList();
         return this;
     }
 
     //OR relation, example setComponentsByState("Italy", "France") will select component with "Italy" or "France" record
-    public TablePage setComponentsByState(String... states) {
-        components = components.stream()
+    public TablePage filterRowsByState(String... states) {
+        tableRows = tableRows.stream()
                 .filter(component -> {
                     for (var s : states)
                         if (Arrays.asList(component.getStates()).contains(s)) {
@@ -54,12 +54,12 @@ public class TablePage {
     }
 
 
-    public TablePage setComponentsByHeightGreaterThan(int height) {
-        components = components.stream().filter(component -> component.getHeight() > height).toList();
+    public TablePage filterRowsByHeightGreaterThan(int height) {
+        tableRows = tableRows.stream().filter(component -> component.getHeight() > height).toList();
         return this;
     }
 
-    public List<TableRowComponent> getComponentsData() {
-        return components;
+    public List<TableRowComponent> getRows() {
+        return tableRows;
     }
 }
