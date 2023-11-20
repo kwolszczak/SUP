@@ -1,0 +1,28 @@
+environments:
+  - name: "test"
+    active: false
+    url: "https://logback.qos.ch/"
+    eTitle: "Logback Home"
+    extraParams:
+      password: "mouseHouse"
+
+  - name: "uat"
+    active: true
+    url: "https://www.selenium.dev/"
+    eTitle: "Selenium"
+    extraParams:
+      login: "mickey"
+      password: "mouseHouse"
+      number: 7
+      version: 1.733.22
+      isSupported: true
+
+
+browser:
+  name: "chrome"
+  version: "116"
+  downloadDir: "src\\download\\"
+  attachScreenshot: true
+  headless: true
+  webelementTimeout: 5
+
