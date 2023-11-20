@@ -1,13 +1,13 @@
 environments:
   - name: "test"
-    active: false
+    active: true
     url: "https://logback.qos.ch/"
     eTitle: "Logback Home"
     extraParams:
       password: "mouseHouse"
 
   - name: "uat"
-    active: true
+    active: false
     url: "https://www.selenium.dev/"
     eTitle: "Selenium"
     extraParams:
