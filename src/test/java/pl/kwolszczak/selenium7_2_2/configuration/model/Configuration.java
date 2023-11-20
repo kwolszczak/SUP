@@ -15,4 +15,4 @@ public class Configuration {
     public Browser getBrowser() {
         return browser;
     }
-}
+  }

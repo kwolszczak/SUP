@@ -20,6 +20,7 @@ public class BrowserConf {
     private String browserDownloadDir = "\\src\\tmp_download";
     private int browserImplicitTimeout = 5;
     private int webElementTimeout = 10;
+    private String url ="https://www.selenium.dev/";
 
     private Logger log;
     private WebDriver driver;
@@ -33,10 +34,10 @@ public class BrowserConf {
     private void initBrowserSettings() {
         this.browserName = appConf.browser().getName() == null ? this.browserName : appConf.browser().getName();
         this.browserHeadless = appConf.browser().isHeadless();
-        // this.browserScreenshotAttach =config.getBrowser(). PropertyStore.BROWSER_ATTACH_SCREENSHOT.isSpecified() ? PropertyStore.BROWSER_ATTACH_SCREENSHOT.getBooleanValue() : this.browserScreenshotAttach;
+        this.url = appConf.env().getUrl() == null ? this.url : appConf.env().getUrl();
         this.webElementTimeout = appConf.browser().getWebelementTimeout() <= 0 ? this.webElementTimeout : appConf.browser().getWebelementTimeout();
         this.browserDownloadDir = appConf.browser().getDownloadDir() == null ? this.browserDownloadDir : appConf.browser().getDownloadDir();
-        //  this.browserImplicitTimeout = config.getBrowser().getWebelementTimeout();
+
     }
 
     public WebDriver getDriver() {
@@ -59,19 +60,19 @@ public class BrowserConf {
                 log.debug("Setup maximize window");
                 driver.manage().window().maximize();
                 log.info("Open app url from config");
-                driver.get(appConf.env().getUrl());
+                driver.get(this.url);
             }
             case "firefox" -> {
                 log.debug("Firefox options loaded from properties");
                 driver = new FirefoxDriver();
                 log.info("Open app url from config");
-                driver.get(appConf.env().getUrl());
+                driver.get(this.url);
             }
             default -> {
                 log.debug("Safari options loaded from properties");
                 driver = new SafariDriver();
                 log.info("Open app url from config");
-                driver.get(appConf.env().getUrl());
+                driver.get(this.url);
             }
         }
         this.driver = driver;

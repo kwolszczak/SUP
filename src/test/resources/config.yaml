@@ -1,13 +1,13 @@
 environments:
   - name: "test"
-    active: true
+    active: false
     url: "https://logback.qos.ch/"
     eTitle: "Logback Home"
     extraParams:
       password: "mouseHouse"
 
   - name: "uat"
-    active: false
+    active: true
     url: "https://www.selenium.dev/"
     eTitle: "Selenium"
     extraParams:
@@ -16,7 +16,6 @@ environments:
       number: 7
       version: 1.733.22
       isSupported: true
-
 
 browser:
   name: "chrome"

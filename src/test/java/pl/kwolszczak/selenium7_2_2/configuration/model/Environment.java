@@ -18,32 +18,16 @@ public class Environment {
         return active;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String geteTitle() {
         return eTitle;
-    }
-
-    public void seteTitle(String eTitle) {
-        this.eTitle = eTitle;
     }
 
     @JsonAnyGetter
