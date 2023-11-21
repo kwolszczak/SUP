@@ -20,6 +20,7 @@ public class YmlLoader {
         log.debug("Try to map config file '{}'", CONFIG_FILE);
         var mapper = new ObjectMapper(new YAMLFactory());
         File file = new File(ClassLoader.getSystemResource(CONFIG_FILE).getFile());
+
         try {
             conf = mapper.readValue(file, Configuration.class);
             log.debug("Mapping '{}' file succeed ", CONFIG_FILE);

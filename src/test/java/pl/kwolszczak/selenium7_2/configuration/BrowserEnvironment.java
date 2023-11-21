@@ -20,11 +20,13 @@ public class BrowserEnvironment {
     private String browserDownloadDir = "\\src\\tmp_download";
     private int browserImplicitTimeout = 5;
     private int webElementTimeout = 10;
+    private String url = "http://www.seleniumui.moderntester.pl/";
 
     private Logger log;
     private WebDriver driver;
 
     public BrowserEnvironment() {
+        this.url = System.getProperty("appUrl") == null ? this.url : System.getProperty("appUrl");
         log = LoggerFactory.getLogger(BrowserEnvironment.class);
         initBrowserSettings();
     }
@@ -42,8 +44,7 @@ public class BrowserEnvironment {
         WebDriver driver;
         switch (this.browserName) {
             case "chrome"-> {
-
-                String path = PropertyStore.BROWSER_DOWNLOAD_DIR.getValue();
+                String path = this.browserDownloadDir;
                 File file = new File(path);
 
                 log.debug("Chrome options loaded from properties");
@@ -55,15 +56,17 @@ public class BrowserEnvironment {
                 chromeOptions.setExperimentalOption("prefs", prefs);
                 driver = new ChromeDriver(chromeOptions);
                 driver.manage().window().maximize();
-                driver.get(System.getProperty("appUrl"));
+                driver.get(this.url);
             }
             case "firefox" ->{
                 log.debug("Firefox options loaded from properties");
                 driver = new FirefoxDriver();
+                driver.get(this.url);
             }
             default -> {
                 log.debug("Safari options loaded from properties");
                 driver = new SafariDriver();
+                driver.get(this.url);
             }
         }
         this.driver = driver;

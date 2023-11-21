@@ -46,7 +46,7 @@ public class BrowserConf {
         switch (this.browserName) {
             case "chrome" -> {
 
-                String path = appConf.browser().getDownloadDir();
+                String path = this.browserDownloadDir;
                 File file = new File(path);
 
                 log.debug("Chrome options loading from config file");
