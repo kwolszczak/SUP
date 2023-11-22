@@ -16,8 +16,8 @@ public class Environment {
     }
 
     @JsonAnySetter
-    public void setProperties(String key, Object value) {
-        this.properties.put(key,value);
+    private void setProperties(String key, Object value) {
+        this.properties.put(key, value);
     }
 }
 

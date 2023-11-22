@@ -18,13 +18,11 @@ public class YamlLoader {
     public void loadYaml() {
 
         if (config == null) {
-            log.debug("#### Configuration file null. Start to load config from yaml");
             try (InputStream inputStream = ClassLoader.getSystemResourceAsStream(CONFIG_YAML)) {
                 ObjectMapper om = new ObjectMapper(new YAMLFactory());
                 config = om.readValue(inputStream, Configuration.class);
-                log.debug("#### Loaded config with success");
             } catch (IOException exc) {
-                log.error("%%%% erorr, couldn't load config_yaml {}", CONFIG_YAML);
+                log.error("%%%% Error, couldn't load config_yaml {}", CONFIG_YAML);
                 throw new RuntimeException();
             }
         }

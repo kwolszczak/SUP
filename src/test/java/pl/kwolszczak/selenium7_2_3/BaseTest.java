@@ -16,12 +16,16 @@ public class BaseTest {
 
     @BeforeAll
     void setUp() {
-        log.info(">>>> Start Setup Data... <<<<");
+        //log.info("app Url: {}", Env.URL.getValue());
+
         appConf = AppConf.getInstance();
         BrowserConf browserConf = new BrowserConf();
         driver = browserConf.getDriver();
+        log.info(">>>> Finished setup data <<<<");
+        log.info("Environment: {}", System.getProperty("environment.name"));
+        log.info("app Url: {}", System.getProperty("environment.url"));
+        log.info(">>>> Start tests <<<<");
 
-        log.debug(">>>> Finished setup data <<<<");
     }
 
     @AfterAll

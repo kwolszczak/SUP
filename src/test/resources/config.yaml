@@ -1,21 +1,16 @@
-environments:
-  - name: "test"
-    active: false
+environment:
+  - active: true
+    name: "test"
     url: "https://logback.qos.ch/"
     eTitle: "Logback Home"
-    extraParams:
-      password: "mouseHouse"
+    webElementTimeout: 5
 
-  - name: "uat"
-    active: true
+  - active: false
+    name: "uat"
     url: "https://www.selenium.dev/"
     eTitle: "Selenium"
-    extraParams:
-      login: "mickey"
-      password: "mouseHouse"
-      number: 7
-      version: 1.733.22
-      isSupported: true
+    webElementTimeout: 5
+
 
 browser:
   name: "chrome"
@@ -23,5 +18,16 @@ browser:
   downloadDir: "src\\download\\"
   attachScreenshot: true
   headless: true
-  webelementTimeout: 5
+
+sqlDB:
+  name: "test"
+  ip: 127.20.1.56
+  port: 5056
+  user: "root"
+  password: "admin"
+
+proxy: "https://sii.pl"
+
+
+
 
