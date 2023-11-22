@@ -58,6 +58,10 @@ public class AppConf {
                 throw new RuntimeException();
             } else if (value instanceof String valueStr) {
                 setSystemPropertyForString(key, valueStr);
+            } else if (value instanceof Boolean val) {
+                setSystemPropertyForString(key, Boolean.toString(val));
+            } else if (value instanceof Number val) {
+                setSystemPropertyForString(key, val.toString());
             } else {
                 Map<String, Object> innerMap = (Map<String, Object>) entry.getValue();
                 setSystemPropertyForMap(innerMap, key);

@@ -26,7 +26,7 @@ sqlDB:
   user: "root"
   password: "admin"
 
-proxy: "https://sii.pl"
+proxy: 33.333.33:3321
 
 
 
