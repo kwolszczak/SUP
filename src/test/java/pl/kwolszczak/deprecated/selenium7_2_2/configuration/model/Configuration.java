@@ -1,6 +1,4 @@
-package pl.kwolszczak.selenium7_2_2.configuration.model;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
+package pl.kwolszczak.deprecated.selenium7_2_2.configuration.model;
 
 import java.util.List;
 

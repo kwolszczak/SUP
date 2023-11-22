@@ -1,11 +1,11 @@
-package pl.kwolszczak.selenium7_2_2.configuration;
+package pl.kwolszczak.deprecated.selenium7_2_2.configuration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.kwolszczak.selenium7_2_2.configuration.loaders.YmlLoader;
-import pl.kwolszczak.selenium7_2_2.configuration.model.Browser;
-import pl.kwolszczak.selenium7_2_2.configuration.model.Configuration;
-import pl.kwolszczak.selenium7_2_2.configuration.model.Environment;
+import pl.kwolszczak.deprecated.selenium7_2_2.configuration.loaders.YmlLoader;
+import pl.kwolszczak.deprecated.selenium7_2_2.configuration.model.Browser;
+import pl.kwolszczak.deprecated.selenium7_2_2.configuration.model.Configuration;
+import pl.kwolszczak.deprecated.selenium7_2_2.configuration.model.Environment;
 
 public class AppConf {
 

@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium7_2_2;
+package pl.kwolszczak.deprecated.selenium7_2_2;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

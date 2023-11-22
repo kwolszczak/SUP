@@ -1,10 +1,10 @@
-package pl.kwolszczak.selenium7_2_2.configuration.loaders;
+package pl.kwolszczak.deprecated.selenium7_2_2.configuration.loaders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.kwolszczak.selenium7_2_2.configuration.model.Configuration;
+import pl.kwolszczak.deprecated.selenium7_2_2.configuration.model.Configuration;
 
 import java.io.File;
 import java.io.IOException;

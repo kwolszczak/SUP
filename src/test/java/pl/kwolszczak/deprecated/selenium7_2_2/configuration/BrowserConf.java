@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium7_2_2.configuration;
+package pl.kwolszczak.deprecated.selenium7_2_2.configuration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

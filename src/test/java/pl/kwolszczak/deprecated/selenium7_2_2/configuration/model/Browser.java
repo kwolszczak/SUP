@@ -1,4 +1,4 @@
-package pl.kwolszczak.selenium7_2_2.configuration.model;
+package pl.kwolszczak.deprecated.selenium7_2_2.configuration.model;
 
 public class Browser {
     private String name;
